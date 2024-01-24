@@ -1,6 +1,7 @@
 import React from 'react'
 import { Notice } from '../../interfaces'
 import Card from '../Card/Card'
+import './Browse.css'
 
 type BrowseProps = {
   lostNotices?: Notice[];
@@ -8,8 +9,7 @@ type BrowseProps = {
 }
 
 const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices }) => {
-  let notices = lostNotices ? lostNotices : foundNotices
-
+  const notices = lostNotices ? lostNotices : foundNotices
   const title = lostNotices ? "Lost" : "Found"
   
   const cards = notices && notices.map(notice => {
@@ -18,7 +18,7 @@ const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices }) => {
 
   return (
     <div>
-      {title}
+      <p className='title'>{title}</p>
       {cards}
     </div>
   )

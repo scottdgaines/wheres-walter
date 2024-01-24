@@ -11,14 +11,19 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
     const [foundNotices, setFoundNotices] = useState<Notice[]>([])
 
     const sortNotices = () => {
-        console.log('useEffect count')
+        const newFoundNotices: Notice[] = []
+        const newLostNotices: Notice[] = []
+
         notices.forEach(notice => {
           if (notice.noticeType === "Lost") {
-            setLostNotices((prevLostNotices) => [...prevLostNotices, notice])
+            newLostNotices.push(notice)
           } else {
-            setFoundNotices((prevFoundNotices) => [...prevFoundNotices, notice])
+            newFoundNotices.push(notice)
           }
         })
+
+        setLostNotices([...newLostNotices])
+        setFoundNotices([...newFoundNotices])
       }
       
     useEffect(() => {
