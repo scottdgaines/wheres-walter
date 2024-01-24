@@ -1,5 +1,5 @@
 import React from 'react'
-import Browse from '../Browse/Browse.tsx'
+import Browse from '../Browse/Browse'
 
 const App = () => {
   return (

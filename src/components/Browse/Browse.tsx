@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Browse = () => {
+type BrowseProps = {
+  lostNotices?: boolean;
+  foundNotices?: boolean;
+}
+
+const Browse: React.FC<BrowseProps> = (lostNotices, foundNotices) => {
   return (
     <div>
       
