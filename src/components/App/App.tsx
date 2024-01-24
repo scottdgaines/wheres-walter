@@ -1,4 +1,5 @@
-import React, { useEffect, useState }from 'react'
+import React, { useEffect, useState } from 'react'
+import { Route } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
 import { data } from '../../data' //essentially my utility file where a fetch would have happened
@@ -19,7 +20,10 @@ const App = () => {
   return (
     <main>
       <Nav />
-      <Home notices={notices} />
+      <Route exact path='/'>
+        <Home notices={notices} />
+      </Route>
+  
     </main>
   )
 }
