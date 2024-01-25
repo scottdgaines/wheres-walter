@@ -1,6 +1,6 @@
 export const data = [
     {
-        noticeID: 1,
+        id: 1,
         noticeType: 'Lost',
         petName: 'Joey',
         mainImage:'https://images.freeimages.com/images/large-previews/c1c/dog-1361477.jpg?fmt=webp&w=350',
@@ -16,7 +16,7 @@ export const data = [
         reward: true
      },
     {
-        noticeID: 2,
+        id: 2,
         noticeType: 'Lost',
         petName: 'Kingsley',
         mainImage:'https://media.istockphoto.com/id/1372376277/photo/happy-smiling-puppy-dog-expression-isolated-on-green-background.jpg?s=1024x1024&w=is&k=20&c=_55xX7WO5nCm0BEvTQP4eQSZoZuAuM9Pl_U8zKSBiHI=',
@@ -32,7 +32,7 @@ export const data = [
         reward: true
     },
     {
-        noticeID: 3,
+        id: 3,
         noticeType: 'Lost',
         petName: 'Skimbleshanks',
         mainImage:'https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -48,7 +48,7 @@ export const data = [
         reward: false    
     },
     {
-        noticeID: 4,
+        id: 4,
         noticeType: 'Found',
         petName: 'Arlo',
         mainImage:'https://images.freeimages.com/images/large-previews/c1c/dog-1361477.jpg?fmt=webp&w=350',

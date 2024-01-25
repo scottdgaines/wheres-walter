@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Route } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
+import View from '../View/View'
 import { data } from '../../data' //essentially my utility file where a fetch would have happened
 import { Notice } from '../../interfaces'
 
@@ -20,9 +21,23 @@ const App = () => {
   return (
     <main>
       <Nav />
-      <Route exact path='/'>
-        <Home notices={notices} />
-      </Route>
+      <Route 
+        exact path='/'
+        render={() => 
+          <Home notices={notices} />
+        }
+      />
+      <Route 
+        path='/:id'
+        render={({ match }) => {
+          const id = parseInt(match.params.id)
+          return (
+          <View 
+            id={id}
+            notices={notices}
+          />
+        )}}
+      />
     </main>
   )
 }
