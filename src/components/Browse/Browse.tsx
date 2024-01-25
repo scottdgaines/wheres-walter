@@ -2,6 +2,7 @@ import React from 'react'
 import { Notice } from '../../interfaces'
 import Card from '../Card/Card'
 import './Browse.css'
+import { Link } from 'react-router-dom'
 
 type BrowseProps = {
   lostNotices?: Notice[];
@@ -13,7 +14,7 @@ const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices }) => {
   const title = lostNotices ? "Lost" : "Found"
   
   const cards = notices && notices.map(notice => {
-    return <Card notice={notice} />
+    return <Card id={notice.id} notice={notice} />
   })
 
   return (

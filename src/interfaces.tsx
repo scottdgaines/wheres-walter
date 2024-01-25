@@ -1,5 +1,5 @@
 export interface Notice {
-    noticeID: number,
+    id: number,
     noticeType: string,
     petName: string,
     mainImage: string,
