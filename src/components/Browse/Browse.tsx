@@ -19,7 +19,9 @@ const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices }) => {
   return (
     <div>
       <p className='title'>{title}</p>
-      {cards}
+      <div className='cards-container'>
+        {cards}
+      </div>
     </div>
   )
 }

@@ -23,7 +23,6 @@ const App = () => {
       <Route exact path='/'>
         <Home notices={notices} />
       </Route>
-  
     </main>
   )
 }
