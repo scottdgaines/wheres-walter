@@ -3,6 +3,7 @@
     background: lightgray;
     border: 1px solid darkgray;
     border-radius: 10px;
+    width: 100%;
 }
 
 .cards-container {
@@ -10,5 +11,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     height: 100vh;
-    margin: 10px;
+    width: 50vw;
 }
+
