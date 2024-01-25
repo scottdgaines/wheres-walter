@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Browse from '../Browse/Browse'
 import { Notice } from '../../interfaces'
+import './Home.css'
 
 type HomeProps = {
     notices: Notice[];
@@ -31,7 +32,7 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
     }, [notices])  
 
   return (
-    <div>
+    <div className='browse-container'>
         <Browse lostNotices={lostNotices} />
         <Browse foundNotices={foundNotices} />
     </div>
