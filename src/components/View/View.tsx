@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Notice } from '../../interfaces'
+import './View.css'
+import errorImage from '../../assets/error-image.jpeg'
 
 type ViewProps = {
     id: number;
@@ -7,7 +9,7 @@ type ViewProps = {
 }
 
 const View: React.FC<ViewProps> = ({ id, notices }) => {
-    const [notice, setNotice] = useState({})
+    const [notice, setNotice] = useState<Notice | null>(null)
 
     const target = () => {
         if (notices) {
@@ -23,11 +25,15 @@ const View: React.FC<ViewProps> = ({ id, notices }) => {
     useEffect(() => {
         target()
     }, [])
+    
+    const errorMessage = 'Something went wrong. Please try again'
+    const name = notice ? notice.petName : errorMessage
+    const mainImageSRC = notice ? notice.mainImage : errorImage
 
   return (
     <div>
-      <p>view</p>
-      <p>{notice.petName}</p>
+        <h1>{name}</h1>
+        <img src={mainImageSRC} className='main-image' /> 
     </div>
   )
 }
