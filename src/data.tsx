@@ -20,7 +20,7 @@ export const data = [
         noticeType: 'Lost',
         petName: 'Kingsley',
         mainImage:'https://media.istockphoto.com/id/1372376277/photo/happy-smiling-puppy-dog-expression-isolated-on-green-background.jpg?s=1024x1024&w=is&k=20&c=_55xX7WO5nCm0BEvTQP4eQSZoZuAuM9Pl_U8zKSBiHI=',
-        additionalImages: [],
+        additionalImages: ['https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_640/MTc0NDkxODAzMDMzMDE5NzUy/220-cute-white-dog-names-with-meanings-for-your-puppy.webp', 'https://cdn-prd.content.metamorphosis.com/wp-content/uploads/sites/2/2021/04/white-dog-names-1.jpg'],
         petBreed: 'White Lab',
         petSpecie: 'Dog',
         petDescription: 'Medium size (40lb) white lab with tufty ears and a pink belly',
