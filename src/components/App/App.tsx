@@ -20,21 +20,11 @@ const App = () => {
 
   return (
     <main>
-        <Nav />
+      <Nav />
       <Routes>
         <Route path='/' element={<Home notices={notices} />} />
-        <Route 
-          path='/:id'
-          render={({ match }) => {
-            const id = parseInt(match.params.id)
-            return (
-            <View 
-              id={id}
-              notices={notices}
-            />
-          )}}
-        />
-       </Routes>
+        <Route path='/:id' element={<View notices={notices} />} />
+      </Routes>
     </main>
   )
 }
