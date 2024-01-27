@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Notice } from '../../interfaces'
 import './View.css'
 import errorImage from '../../assets/error-image.jpeg'
@@ -9,7 +9,7 @@ type ViewProps = {
 }
 
 const View: React.FC<ViewProps> = ({ id, notices }) => {
-    const [notice, setNotice] = useState<Notice | null>(null)
+    const [notice, setNotice] = React.useState<Notice | null>(null)
 
     const target = () => {
         if (notices) {
@@ -22,7 +22,7 @@ const View: React.FC<ViewProps> = ({ id, notices }) => {
     }
     console.log('notice', notice)
 
-    useEffect(() => {
+    React.useEffect(() => {
         target()
     }, [])
     
