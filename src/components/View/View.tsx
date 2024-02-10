@@ -11,21 +11,21 @@ type ViewProps = {
 
 const View: React.FC<ViewProps> = ({ notices }) => {
     const [notice, setNotice] = React.useState<Notice | null>(null)
-    const { id } = useParams()
+    const { id } = useParams<{ id: string }>()
 
-    const targetNotice = () => {
+    
+    const findNotice = React.useCallback(() => {
         if (notices) {
-            notices.forEach(notice => {
-                if (notice.id === Number(id)) {
-                    setNotice(notice)
-                }
-            }) 
+           const target = notices.find(notice => {
+                return notice.id === Number(id)
+            })
+            setNotice(target || null)
         }   
-    }
+    }, [notices, id])
 
     React.useEffect(() => {
-      targetNotice()
-    }, [])
+      findNotice()
+    }, [findNotice])
 
     const renderAdditionalImages = () => {
         if (notice && notice.additionalImages.length != 0) {
