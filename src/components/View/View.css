@@ -1,12 +1,31 @@
 .main-image {
-    width: 300px;
+    width: 30vw;
     margin: auto;
+    border: 1px solid black;
+    padding: 2px;
 }
 
+.name {
+    text-align: center;
+    font-size: 3rem;
+}
 .thumbnail {
     width: 100px;
 }
 
 .navigation-link {
     
+}
+
+.view-container {
+    display: flex;
+    border: 2px solid darkgray;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 70vw;
+    margin: auto;
+    margin-top: 20px;
+    height: fit-content;
+    box-shadow: 5px 5px lightgrey;
 }

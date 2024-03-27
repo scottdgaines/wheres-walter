@@ -43,8 +43,8 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const additionalImages = renderAdditionalImages()
 
   return (
-    <div>
-        <h1>{name}</h1>
+    <div className="view-container">
+        <h1 className='name'>{name}</h1>
         <img src={mainImageSRC} className='main-image' /> 
         {additionalImages}
         <h2>{description}</h2>
