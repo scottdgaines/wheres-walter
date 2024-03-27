@@ -13,6 +13,7 @@ type ViewProps = {
 const View: React.FC<ViewProps> = ({ notices }) => {
     const [notice, setNotice] = React.useState<Notice | null>(null)
     const { id } = useParams<{ id: string }>()
+    const [image, setImage] =  React.useState<string | null>()
 
     
     const findNotice = React.useCallback(() => {
@@ -22,32 +23,46 @@ const View: React.FC<ViewProps> = ({ notices }) => {
             })
             setNotice(target || null)
         }   
+
     }, [notices, id])
 
     React.useEffect(() => {
       findNotice()
     }, [findNotice])
 
+    React.useEffect(() => {
+        if (notice) {
+            setImage(notice.images[0])
+        }
+    }, [notice])
+
+    const handleClick = (imgURL: string) => {
+        setImage(imgURL)
+    }
+
     const renderAdditionalImages = () => {
-        if (notice && notice.additionalImages.length != 0) {
-            return notice.additionalImages.map(img => {
-                return <img src={img} className='thumbnail' />
+        if (notice && notice.images.length > 1) {
+            return notice.images.map(img => {
+                return <img src={img} className='thumbnail' onClick={() => handleClick(img)} />
             })
         }
     }
     
     const errorMessage = 'Something went wrong. Please try again'
     const name = notice ? notice.petName : errorMessage
-    const mainImageSRC = notice ? notice.mainImage : errorImage
+    const imageSRC = notice ? image : errorImage
     const description = notice && notice.petDescription
     const additionalImages = renderAdditionalImages()
+    const noticeType = notice && notice.noticeType
 
   return (
     <div className="view-container">
+        <p>{noticeType}</p>
         <h1 className='name'>{name}</h1>
-        <img src={mainImageSRC} className='main-image' /> 
+        <img src={imageSRC} className='main-image' /> 
         {additionalImages}
-        <h2>{description}</h2>
+        <h2>Description</h2>
+        <p>{description}</p>
         <Link to='..' className='navigation-link'>Home</Link>
     </div>
   )
