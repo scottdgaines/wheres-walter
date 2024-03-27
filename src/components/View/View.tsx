@@ -48,7 +48,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         <img src={mainImageSRC} className='main-image' /> 
         {additionalImages}
         <h2>{description}</h2>
-        <Link to='..'>Return to Dashboard</Link>
+        <Link to='..' className='navigation-link'>Home</Link>
     </div>
   )
 }
