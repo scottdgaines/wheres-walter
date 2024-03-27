@@ -1,8 +1,8 @@
 .nav-bar {
     height: 15vh;
-    border: 2px solid green;
     display: flex;
     flex-direction: row;
+    background-color: lightgray;
 }
 
 .nav-title {
