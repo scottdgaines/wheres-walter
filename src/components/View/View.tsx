@@ -59,8 +59,12 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     <div className="view-container">
         <p>{noticeType}</p>
         <h1 className='name'>{name}</h1>
-        <img src={imageSRC} className='main-image' /> 
-        {additionalImages}
+        <div className='image-container'>
+            <img src={imageSRC} className='main-image' /> 
+            <div className='thumbnail-container'>
+                {additionalImages}
+            </div>
+        </div>
         <h2>Description</h2>
         <p>{description}</p>
         <Link to='..' className='navigation-link'>Home</Link>

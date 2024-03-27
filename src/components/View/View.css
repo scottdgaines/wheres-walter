@@ -1,5 +1,5 @@
 .main-image {
-    width: 20vw;
+    width: 40vw;
     margin: auto;
     border: 1px solid black;
     padding: 2px;
@@ -11,10 +11,22 @@
 }
 .thumbnail {
     width: 100px;
+    margin: 5px;
 }
 
 .navigation-link {
     
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .view-container {
