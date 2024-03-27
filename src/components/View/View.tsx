@@ -3,6 +3,7 @@ import { Notice } from '../../interfaces'
 import './View.css'
 import errorImage from '../../assets/error-image.jpeg'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 type ViewProps = {
     id: number;
@@ -47,6 +48,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         <img src={mainImageSRC} className='main-image' /> 
         {additionalImages}
         <h2>{description}</h2>
+        <Link to='..' className='navigation-link'>Home</Link>
     </div>
   )
 }
