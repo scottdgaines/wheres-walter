@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ id, notice }) => {
     <Link to={`/${id}`}>
       <div className='card'>
         <p>{notice.petName}</p>
-        <img src={notice.mainImage} className='thumbnail' />
+        <img src={notice.images[0]} className='thumbnail' />
       </div>
     </Link>
   )
