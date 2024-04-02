@@ -2,51 +2,49 @@ import React from 'react'
 import { Notice } from '../../interfaces'
 import './View.css'
 import errorImage from '../../assets/error-image.jpeg'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import HomeIcon from '../../assets/home-icon.png'
 
 type ViewProps = {
-    id: number;
     notices: Notice[]
 }
 
 const View: React.FC<ViewProps> = ({ notices }) => {
     const [notice, setNotice] = React.useState<Notice | null>(null)
-    const { id } = useParams<{ id: string }>()
     const [image, setImage] =  React.useState<string | null>()
-
-    
-    const findNotice = React.useCallback(() => {
-        if (notices) {
-           const target = notices.find(notice => {
-                return notice.id === Number(id)
-            })
-            setNotice(target || null)
-        }   
-
-    }, [notices, id])
+    const { id: noticeId } = useParams<{ id: string }>()
+    const navigate = useNavigate()
 
     React.useEffect(() => {
-      findNotice()
-    }, [findNotice])
-
-    React.useEffect(() => {
-        if (notice) {
-            setImage(notice.images[0])
+        const noticeIdNum = parseInt(noticeId)
+        const foundNotice = notices.find(notice => {
+            return notice.id === noticeIdNum
+        })
+        if (foundNotice) {
+            setNotice(foundNotice);
+            setImage(foundNotice.images[0])
         }
-    }, [notice])
+     
+    }, [noticeId, notices])
 
-    const handleClick = (imgURL: string) => {
+    const handleImageSelection = (imgURL: string) => {
         setImage(imgURL)
     }
 
     const renderAdditionalImages = () => {
         if (notice && notice.images.length > 1) {
             return notice.images.map(img => {
-                return <img src={img} className='thumbnail' onClick={() => handleClick(img)} />
+                return <img src={img} className='thumbnail' onClick={() => handleImageSelection(img)} />
             })
         }
+    }
+
+    const handleNextNotice = () => {
+        const currentIndex = parseInt(noticeId)
+        console.log('current', currentIndex)
+        const nextIndex = (currentIndex + 1) % notices.length;
+        const nextNoticeId = notices[nextIndex].id;
+        navigate(`/${nextNoticeId}`);
     }
     
     const errorMessage = 'Something went wrong. Please try again'
@@ -58,7 +56,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
 
   return (
     <div className="view-container">
-        <p>{noticeType}</p>
+        {/* <p>{noticeType}</p> */}
         <h1 className='name'>{name}</h1>
         <div className='image-container'>
             <img src={imageSRC} className='main-image' /> 
@@ -68,11 +66,15 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         </div>
         <h2>Description</h2>
         <p>{description}</p>
-        <Link to='..'>
-            <img src={HomeIcon} className='navigation-link' />
-        </Link>
+        <div className='navigation-container'>
+            <Link to='..'>
+                <img src={HomeIcon} className='navigation-link' />
+            </Link>
+            <button onClick={handleNextNotice}>Next</button>
+        </div>
     </div>
   )
 }
 
 export default View
+
