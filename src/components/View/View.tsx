@@ -4,7 +4,7 @@ import './View.css'
 import errorImage from '../../assets/error-image.jpeg'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import homeIcon from '../../assets/home-icon.png'
+import HomeIcon from '../../assets/home-icon.png'
 
 type ViewProps = {
     id: number;
@@ -68,7 +68,9 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         </div>
         <h2>Description</h2>
         <p>{description}</p>
-        <Link to='..' className='navigation-link'>{homeIcon}</Link>
+        <Link to='..'>
+            <img src={HomeIcon} className='navigation-link' />
+        </Link>
     </div>
   )
 }
