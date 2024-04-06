@@ -16,7 +16,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const navigate = useNavigate()
 
     React.useEffect(() => {
-        const noticeIdNum = parseInt(noticeId || '', 1)
+        const noticeIdNum = parseInt(noticeId || '', 0)
         const targettedNotice = notices.find(notice => {
             return notice.id === noticeIdNum
         })
@@ -39,13 +39,9 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         }
     }
 
-    const NavigateToNextNotice = () => {
-        const sortedNotices = notices.sort((notice1, notice2) => {
-            return notice1.id - notice2.id
-        })
-        console.log('sorted', sortedNotices)
-        // navigate(`/${nextNoticeId}`);
-    }
+    // const NavigateToNextNotice = () => {
+    //    const currentID = 
+    // }
     
     const errorMessage = 'Something went wrong. Please try again'
     const name = notice ? notice.petName : errorMessage
@@ -70,7 +66,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
             <Link to='/'>
                 <img src={HomeIcon} className='navigation-link' />
             </Link>
-            <button onClick={NavigateToNextNotice}>Next</button>
+            {/* <button onClick={NavigateToNextNotice}>Next</button> */}
         </div>
     </div>
   )
