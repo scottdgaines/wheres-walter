@@ -67,7 +67,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         <h2>Description</h2>
         <p>{description}</p>
         <div className='navigation-container'>
-            <Link to='..'>
+            <Link to='/'>
                 <img src={HomeIcon} className='navigation-link' />
             </Link>
             <button onClick={NavigateToNextNotice}>Next</button>
