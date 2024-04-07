@@ -13,10 +13,10 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const [notice, setNotice] = React.useState<Notice | null>(null)
     const [image, setImage] =  React.useState<string | null>()
     const { id: noticeId } = useParams<{ id: string }>()
+    const noticeIdNum = noticeId && parseInt(noticeId || '', 0)
     const navigate = useNavigate()
 
     React.useEffect(() => {
-        const noticeIdNum = parseInt(noticeId || '', 0)
         const targettedNotice = notices.find(notice => {
             return notice.id === noticeIdNum
         })
@@ -24,6 +24,8 @@ const View: React.FC<ViewProps> = ({ notices }) => {
             setNotice(targettedNotice);
             setImage(targettedNotice.images[0])
         }
+
+        
      
     }, [noticeId, notices])
 
@@ -39,9 +41,15 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         }
     }
 
-    // const NavigateToNextNotice = () => {
-    //    const currentID = 
-    // }
+    const NavigateToNextNotice = () => {
+        const currentIndex = notice && notices.findIndex(notice => {
+            return noticeIdNum === notice.id
+        })
+        const nextIndex = currentIndex && (currentIndex + 1) % notices.length
+        const nextId = nextIndex && notices[nextIndex].id
+        navigate(`/${nextId}`)
+    }
+
     
     const errorMessage = 'Something went wrong. Please try again'
     const name = notice ? notice.petName : errorMessage
@@ -66,7 +74,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
             <Link to='/'>
                 <img src={HomeIcon} className='navigation-link' />
             </Link>
-            {/* <button onClick={NavigateToNextNotice}>Next</button> */}
+            <button onClick={NavigateToNextNotice}>Next</button>
         </div>
     </div>
   )
