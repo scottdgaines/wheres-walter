@@ -51,29 +51,33 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         }
     }
 
-    const NavigateToNextNotice = () => {
-        const currentIndex = navigationArray && navigationArray.findIndex((element) => {
+    const findCurrentIndex = () => {
+        return navigationArray && navigationArray.findIndex((element) => {
             return noticeIdNum === element.id
         })
-        const nextIndex = currentIndex && (currentIndex + 1) % notices.length
-        const nextId = nextIndex && navigationArray[nextIndex].id
-        navigate(`/${nextId}`)
     }
 
     const navigateNotices = (direction: string) => {
         let navIndex
 
-        const currentIndex = navigationArray && navigationArray.findIndex((element) => {
-            return noticeIdNum === element.id
-        })
+        const currentIndex = findCurrentIndex()
 
-        if (direction === 'prev') {
-            navIndex = currentIndex && (currentIndex - 1) % notices.length
+        if (direction === 'prev' && currentIndex > 1) {
+            navIndex = currentIndex - 1
+        } else if (direction === 'prev' && currentIndex == 1) {
+            navIndex = 0
+        } else if (direction == 'prev' && currentIndex == 0) {
+            navIndex = navigationArray.length
+        } else if (currentIndex == 0){
+            navIndex = 1
+        } else if (currentIndex === navigationArray.length) {
+            navIndex = 0
         } else {
-            navIndex = currentIndex && (currentIndex + 1) % notices.length
+            navIndex = currentIndex + 1
         }
-
-        const navId = navIndex && navigationArray[navIndex].id
+        
+        const navId = navigationArray[navIndex].id
+        console.log('jello', navigationArray)
         navigate(`/${navId}`)
     }
 
@@ -83,6 +87,8 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const description = notice && notice.petDescription
     const additionalImages = renderAdditionalImages()
     const noticeType = notice && notice.noticeType
+    const prevButton = findCurrentIndex() > 0 && <button onClick={() => navigateNotices('prev')}>Previous</button>
+    const nextButton = findCurrentIndex() < navigationArray.length && <button onClick={() => navigateNotices('next')}>Next</button>
 
   return (
     <div className="view-container">
@@ -97,11 +103,11 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         <h2>Description</h2>
         <p>{description}</p>
         <div className='navigation-container'>
-            <button onClick={() => navigateNotices('prev')}>Previous</button>
+            {prevButton}
             <Link to='/'>
                 <img src={HomeIcon} className='navigation-link' />
             </Link>
-            <button onClick={() => navigateNotices('next')}>Next</button>
+            {nextButton}
         </div>
     </div>
   )
