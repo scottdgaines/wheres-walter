@@ -60,7 +60,23 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         navigate(`/${nextId}`)
     }
 
-    
+    const navigateNotices = (direction: string) => {
+        let navIndex
+
+        const currentIndex = navigationArray && navigationArray.findIndex((element) => {
+            return noticeIdNum === element.id
+        })
+
+        if (direction === 'prev') {
+            navIndex = currentIndex && (currentIndex - 1) % notices.length
+        } else {
+            navIndex = currentIndex && (currentIndex + 1) % notices.length
+        }
+
+        const navId = navIndex && navigationArray[navIndex].id
+        navigate(`/${navId}`)
+    }
+
     const errorMessage = 'Something went wrong. Please try again'
     const name = notice ? notice.petName : errorMessage
     const imageSRC = notice ? image : errorImage
@@ -81,10 +97,11 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         <h2>Description</h2>
         <p>{description}</p>
         <div className='navigation-container'>
+            <button onClick={() => navigateNotices('prev')}>Previous</button>
             <Link to='/'>
                 <img src={HomeIcon} className='navigation-link' />
             </Link>
-            <button onClick={NavigateToNextNotice}>Next</button>
+            <button onClick={() => navigateNotices('next')}>Next</button>
         </div>
     </div>
   )
