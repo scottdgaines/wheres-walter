@@ -57,7 +57,7 @@ export const data = [
         petNotes: 'Really friendly, found near the supermarket',
         contactNum: '123-456-7890',
         contactEmail: 'example@example.com',
-        reward: false
+        reward: null
      },
      {
         id: 7,
@@ -72,6 +72,21 @@ export const data = [
         petNotes: 'Very friendly! Was last seen wearing a red collar.',
         contactNum: '123-456-7890',
         contactEmail: 'example@example.com',
-        reward: true
-     }
+        reward: false
+     },
+     {
+        id: 12,
+        noticeType: 'Found',
+        petName: 'Tum Tums',
+        images:['https://www.catster.com/wp-content/uploads/2023/11/Calico-Cat-2.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQETVpX-ScEmRQA6Y77k3myOBgmUJQx4FEzkDbQUPJwUSMFDYVjFWMWFwW7-HhPnaqzhzM&usqp=CAU'],
+        petBreed: 'Calico',
+        petSpecie: 'Cat',
+        petDescription: 'Orange, black, and white calico, green ',
+        dateLost: '03/17/2023',
+        chipNum: 1234567,
+        petNotes: 'Found near the corner of 10th and irving',
+        contactNum: '123-456-7890',
+        contactEmail: 'example@example.com',
+        reward: null
+     },
 ]
