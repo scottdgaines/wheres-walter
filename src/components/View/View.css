@@ -9,13 +9,21 @@
     text-align: center;
     font-size: 3rem;
 }
+
+.navigation-container {
+ display: flex;
+ justify-content: center;
+}
+
 .thumbnail {
     width: 100px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .navigation-link {
-    
+    width: 4vw;
+    align-self: center;
 }
 
 .image-container {
@@ -35,9 +43,10 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
-    width: 70vw;
+    width: 50vw;
     margin: auto;
     margin-top: 20px;
     height: fit-content;
     box-shadow: 5px 5px lightgrey;
+    padding: 10px 10px 20px;
 }
