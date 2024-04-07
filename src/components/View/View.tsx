@@ -88,7 +88,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const additionalImages = renderAdditionalImages()
     const noticeType = notice && notice.noticeType
     const prevButton = findCurrentIndex() > 0 && <button onClick={() => navigateNotices('prev')}>Previous</button>
-    const nextButton = findCurrentIndex() < navigationArray.length && <button onClick={() => navigateNotices('next')}>Next</button>
+    const nextButton = findCurrentIndex() < navigationArray.length - 1 && <button onClick={() => navigateNotices('next')}>Next</button>
 
   return (
     <div className="view-container">
