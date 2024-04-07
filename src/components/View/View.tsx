@@ -12,22 +12,32 @@ type ViewProps = {
 const View: React.FC<ViewProps> = ({ notices }) => {
     const [notice, setNotice] = React.useState<Notice | null>(null)
     const [image, setImage] =  React.useState<string | null>()
+    const [navigationArray, setNavigationArray] = React.useState<Notice[]>([])
     const { id: noticeId } = useParams<{ id: string }>()
     const noticeIdNum = noticeId && parseInt(noticeId || '', 0)
     const navigate = useNavigate()
 
+    const createNavigationArray = () => {
+        const sortedNotices = notice && notices.filter(index => {
+            return index.noticeType === notice.noticeType
+        })
+        if (sortedNotices) {
+            setNavigationArray(sortedNotices)
+        }
+    }
+
     React.useEffect(() => {
-        const targettedNotice = notices.find(notice => {
+        const targetedNotice = notices.find(notice => {
             return notice.id === noticeIdNum
         })
-        if (targettedNotice) {
-            setNotice(targettedNotice);
-            setImage(targettedNotice.images[0])
-        }
 
+        if (targetedNotice) {
+            setNotice(targetedNotice);
+            setImage(targetedNotice.images[0])
+            createNavigationArray()
+        }
         
-     
-    }, [noticeId, notices])
+    }, [noticeId, notices, notice])
 
     const handleImageSelection = (imgURL: string) => {
         setImage(imgURL)
@@ -42,11 +52,11 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     }
 
     const NavigateToNextNotice = () => {
-        const currentIndex = notice && notices.findIndex(notice => {
-            return noticeIdNum === notice.id
+        const currentIndex = navigationArray && navigationArray.findIndex((element) => {
+            return noticeIdNum === element.id
         })
         const nextIndex = currentIndex && (currentIndex + 1) % notices.length
-        const nextId = nextIndex && notices[nextIndex].id
+        const nextId = nextIndex && navigationArray[nextIndex].id
         navigate(`/${nextId}`)
     }
 
