@@ -21,6 +21,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         const sortedNotices = notice && notices.filter(index => {
             return index.noticeType === notice.noticeType
         })
+
         if (sortedNotices) {
             setNavigationArray(sortedNotices)
         }
@@ -64,20 +65,17 @@ const View: React.FC<ViewProps> = ({ notices }) => {
 
         if (direction === 'prev' && currentIndex > 1) {
             navIndex = currentIndex - 1
-        } else if (direction === 'prev' && currentIndex == 1) {
+        } else if ((direction === 'prev' && currentIndex == 1) || currentIndex === navigationArray.length) {
             navIndex = 0
         } else if (direction == 'prev' && currentIndex == 0) {
             navIndex = navigationArray.length
         } else if (currentIndex == 0){
             navIndex = 1
-        } else if (currentIndex === navigationArray.length) {
-            navIndex = 0
         } else {
             navIndex = currentIndex + 1
         }
         
         const navId = navigationArray[navIndex].id
-        console.log('jello', navigationArray)
         navigate(`/${navId}`)
     }
 
@@ -87,12 +85,21 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const description = notice && notice.petDescription
     const additionalImages = renderAdditionalImages()
     const noticeType = notice && notice.noticeType
-    const prevButton = findCurrentIndex() > 0 && <button onClick={() => navigateNotices('prev')}>Previous</button>
-    const nextButton = findCurrentIndex() < navigationArray.length - 1 && <button onClick={() => navigateNotices('next')}>Next</button>
+    const prevButton = findCurrentIndex() > 0 && <button className="nav-button left" onClick={() => navigateNotices('prev')}>Previous</button>
+    const nextButton = findCurrentIndex() < navigationArray.length - 1 && <button className="nav-button right" onClick={() => navigateNotices('next')}>Next</button>
+    let noticeBanner = notice && notice.noticeType == "Lost" ? "notice-banner lost" : "notice-banner found"
 
   return (
+    <>
+    <div className='navigation-container'>
+        {prevButton}
+        <Link to='/'>
+            <img src={HomeIcon} className='home-button' />
+        </Link>
+        {nextButton}
+    </div>
     <div className="view-container">
-        {/* <p>{noticeType}</p> */}
+        <p className={noticeBanner}>{noticeType}</p>
         <h1 className='name'>{name}</h1>
         <div className='image-container'>
             <img src={imageSRC} className='main-image' /> 
@@ -102,14 +109,8 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         </div>
         <h2>Description</h2>
         <p>{description}</p>
-        <div className='navigation-container'>
-            {prevButton}
-            <Link to='/'>
-                <img src={HomeIcon} className='navigation-link' />
-            </Link>
-            {nextButton}
-        </div>
     </div>
+    </>
   )
 }
 

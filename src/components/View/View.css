@@ -1,42 +1,3 @@
-.main-image {
-    width: 40vw;
-    margin: auto;
-    border: 1px solid black;
-    padding: 2px;
-}
-
-.name {
-    text-align: center;
-    font-size: 3rem;
-}
-
-.navigation-container {
- display: flex;
- justify-content: center;
-}
-
-.thumbnail {
-    width: 100px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.navigation-link {
-    width: 4vw;
-    align-self: center;
-}
-
-.image-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.thumbnail-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .view-container {
     display: flex;
     border: 2px solid darkgray;
@@ -50,3 +11,74 @@
     box-shadow: 5px 5px lightgrey;
     padding: 10px 10px 20px;
 }
+
+.main-image {
+    width: 40vw;
+    margin: auto;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.name {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    width: 75px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.nav-button.left {
+    margin-right: auto;
+}
+
+.nav-button.right {
+    margin-left: auto;
+}
+
+.notice-banner {
+    width:max-content;
+    color: white;
+    text-align: center;
+    font-size: 3vw;
+    width: 100%;
+} 
+
+.lost {
+    background-color: red;
+}
+
+.found {
+    background-color: rgb(1, 170, 1);
+}
+
+.home-button {
+    width: 4vw;
+    margin: 0;
+}
+
+.thumbnail {
+    width: 100px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
