@@ -86,7 +86,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const additionalImages = renderAdditionalImages();
     const prevButton = findCurrentIndex() > 0 && <button className="nav-button left" onClick={() => navigateNotices('prev')}>Previous</button>;
     const nextButton = findCurrentIndex() < navigationArray.length - 1 && <button className="nav-button right" onClick={() => navigateNotices('next')}>Next</button>;
-    let noticeBanner = notice && notice.noticeType == "Lost" ? "notice-banner lost" : "notice-banner found";
+    const noticeBanner = notice && notice.noticeType == "Lost" ? "notice-banner lost" : "notice-banner found";
 
   return (
     <>
