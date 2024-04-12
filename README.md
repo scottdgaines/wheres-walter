@@ -21,3 +21,4 @@ lost pets being reunited with their families.
 - As a user, I should be able to create an account and customize my profile
 - I should be able to message with fellow users
 - I should be able to comment on notices
+- I should be able to update or remove notices that I have submitted 
