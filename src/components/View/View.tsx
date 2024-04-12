@@ -65,7 +65,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
 
         if (direction === 'prev' && currentIndex > 1) {
             nextIndex = currentIndex - 1
-        } else if ((direction === 'prev' && currentIndex == 1) || currentIndex === navigationArray.length) {
+        } else if (direction === 'prev' && currentIndex == 1) {
             nextIndex = 0
         } else if (currentIndex == 0){
             nextIndex = 1
@@ -74,6 +74,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         }
         
         const navId = navigationArray[nextIndex].id
+
         navigate(`/${navId}`)
     };
 
