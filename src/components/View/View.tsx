@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './View.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Notice } from '../../interfaces';
@@ -10,8 +10,8 @@ type ViewProps = {
 };
 
 const View: React.FC<ViewProps> = ({ notices }) => {
-    const [notice, setNotice] = React.useState<Notice | null>(null);
-    const [image, setImage] =  React.useState<string | null>();
+    const [notice, setNotice] = useState<Notice | null>(null);
+    const [image, setImage] =  useState<string | null>();
     const [navigationArray, setNavigationArray] = React.useState<Notice[]>([]);
     const { id: noticeId } = useParams<{ id: string }>();
     const noticeIdNum = noticeId && parseInt(noticeId || '', 0);
@@ -27,7 +27,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         }
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         const targetedNotice = notices.find(notice => {
             return notice.id === noticeIdNum
         })
