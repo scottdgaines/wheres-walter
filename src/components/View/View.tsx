@@ -101,6 +101,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const species = notice && notice.petSpecie;
     const date = determineDate()
     const description = notice ? notice.petDescription : errorMessage;
+    const notes = notice && notice.petNotes
     const contact = determineContact()
     const imageSRC = notice ? image : errorImage;
     const additionalImages = renderAdditionalImages();
@@ -132,6 +133,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
                     <p>{date}</p>
                     <h2>Description</h2>
                     <p>{description}</p>
+                    <p>{notes}</p>
                     <p>{contact}</p>
                 </div>
             </div>
