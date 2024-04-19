@@ -7,10 +7,6 @@
     cursor: pointer;
 }
 
-.title selected {
-    
-}
-
 .cards-container {
     display: flex;
     flex-direction: row;
