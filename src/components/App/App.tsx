@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
@@ -7,7 +7,7 @@ import { data } from '../../data' //essentially my utility file where a fetch wo
 import { Notice } from '../../interfaces'
 
 const App = () => {
-  const [notices, setNotices] = React.useState<Notice[]>([])
+  const [notices, setNotices] = useState<Notice[]>([])
 
   const loadData = () => {
     //fetch from utility file

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './View.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Notice } from '../../interfaces';
@@ -10,8 +10,8 @@ type ViewProps = {
 };
 
 const View: React.FC<ViewProps> = ({ notices }) => {
-    const [notice, setNotice] = React.useState<Notice | null>(null);
-    const [image, setImage] =  React.useState<string | null>();
+    const [notice, setNotice] = useState<Notice | null>(null);
+    const [image, setImage] =  useState<string | null>();
     const [navigationArray, setNavigationArray] = React.useState<Notice[]>([]);
     const { id: noticeId } = useParams<{ id: string }>();
     const noticeIdNum = noticeId && parseInt(noticeId || '', 0);
@@ -27,7 +27,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         }
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         const targetedNotice = notices.find(notice => {
             return notice.id === noticeIdNum
         })
@@ -51,6 +51,22 @@ const View: React.FC<ViewProps> = ({ notices }) => {
             })
         }
     };
+
+    const determineDate = () => {
+        if (notice && notice.noticeType === 'Lost'){
+            return `Missing since ${notice.dateLost}`
+         } else if (notice && notice.noticeType == 'Found') {
+            return `Found on ${notice.dateLost}`
+         }
+    }
+
+    const determineContact = () => {
+        if (notice && notice.noticeType === 'Lost') {
+            return `If found, please contact us at ${notice.contactNum} and ${notice.contactEmail}`
+        } else if (notice) {
+            return `Contact us at ${notice.contactNum} or ${notice.contactEmail}`
+        }
+    }
 
     const findCurrentIndex = () => {
         return navigationArray && navigationArray.findIndex((element) => {
@@ -79,10 +95,15 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     };
 
     const errorMessage = 'Something went wrong. Please try again';
-    const name = notice ? notice.petName : errorMessage;
-    const imageSRC = notice ? image : errorImage;
-    const description = notice && notice.petDescription;
     const noticeType = notice && notice.noticeType;
+    const name = notice && notice.petName;
+    const breed = notice && notice.petBreed;
+    const species = notice && notice.petSpecie;
+    const date = determineDate()
+    const description = notice ? notice.petDescription : errorMessage;
+    const notes = notice && notice.petNotes
+    const contact = determineContact()
+    const imageSRC = notice ? image : errorImage;
     const additionalImages = renderAdditionalImages();
     const prevButton = findCurrentIndex() > 0 && <button className="nav-button left" onClick={() => navigateNotices('prev')}>Previous</button>;
     const nextButton = findCurrentIndex() < navigationArray.length - 1 && <button className="nav-button right" onClick={() => navigateNotices('next')}>Next</button>;
@@ -108,8 +129,12 @@ const View: React.FC<ViewProps> = ({ notices }) => {
                 </div>
                 <div className='information-container'>
                     <h1 className='name'>{name}</h1>
+                    <p className='breed-tag'>{breed} {species}</p>
+                    <p>{date}</p>
                     <h2>Description</h2>
                     <p>{description}</p>
+                    <p>{notes}</p>
+                    <p>{contact}</p>
                 </div>
             </div>
         </div>
