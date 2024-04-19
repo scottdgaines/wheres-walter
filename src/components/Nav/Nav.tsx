@@ -7,8 +7,10 @@ import formLogo from '../../assets/form-logo.png'
 const Nav = () => {
   return (
     <div className='nav-bar'>
-        <p className='nav-title'>Where's Walter</p>
-        <img src={logo} className='logo' />
+        <div className='logo-container' >
+          <p className='nav-title'>Where's Walter</p>
+          <img src={logo} className='logo' />
+        </div>
         <Link to='/form' >
           <img src={formLogo} className='form-logo' />
         </Link>
