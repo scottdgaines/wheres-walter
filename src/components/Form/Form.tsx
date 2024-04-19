@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import homeIcon from '../../assets/home-icon.png'
 
 const Form = () => {
-
-
-  return (
-    <div>
-      <form>
-        <input type='drop' />
-        <label>Pet Name</label>
-      </form>
-    </div>
-  )
+    return (
+        <div>
+            <p>form</p>
+        </div>
+    )
 }
 
 export default Form

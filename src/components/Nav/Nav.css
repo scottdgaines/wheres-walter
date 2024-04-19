@@ -12,15 +12,24 @@
     margin-left: 20px;
 }
 
+
+
 .nav-title {
     font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.tagline {
+    margin-top: 0px;
 }
 
 .logo {
     height: 100%;
 }
 
-.form-logo {
-    width: 100px;
+.icon {
+    width: 70px;
+    margin-right: 20px;
+    margin-top: 10px;
  
 }
