@@ -2,13 +2,34 @@
     height: 15vh;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     background-color: lightgray;
 }
 
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+
+
 .nav-title {
     font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.tagline {
+    margin-top: 0px;
 }
 
 .logo {
     height: 100%;
+}
+
+.icon {
+    width: 70px;
+    margin-right: 20px;
+    margin-top: 10px;
+ 
 }

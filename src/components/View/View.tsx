@@ -3,7 +3,7 @@ import './View.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Notice } from '../../interfaces';
 import errorImage from '../../assets/error-image.jpeg';
-import HomeIcon from '../../assets/home-icon.png';
+import homeIcon from '../../assets/home-icon.png';
 
 type ViewProps = {
     notices: Notice[]
@@ -114,7 +114,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         <div className='navigation-container'>
             {prevButton}
             <Link to='/'>
-                <img src={HomeIcon} className='home-button' />
+                <img src={homeIcon} className='home-button' />
             </Link>
             {nextButton}
         </div>
