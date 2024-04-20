@@ -1,26 +1,36 @@
 import React, { useState, createRef } from 'react'
+import Notice from '../../Notice'
+import { data } from '../../data'
 
 const Form = () => {
     const [noticeType, setNoticeType] = useState<string>('Lost')
     const [petName, setPetName] = useState<string>('')
-    const [images, setImages] = useState<string | null>(null)
+    const [images, setImages] = useState<string[] | []>([])
     const [petSpecie, setPetSpecie] = useState<string>('Dog')
     const [petBreed, setPetBreed] = useState<string>('')
     const fileInputRef = createRef<HTMLInputElement>()
 
-    console.log(petName)
-    console.log(noticeType)
-    console.log(images)
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-    
+    const addImages = () => {
         if (fileInputRef.current && fileInputRef.current.files && fileInputRef.current.files.length) {
-            setImages(fileInputRef.current.files[0].name)
+            setImages([fileInputRef.current.files[0].name])
         }
     }
 
-    const selectedFile = images && <p>Selected File: {images}</p>
+    const determineId = () => {
+        const index = data.length + 1
+        const id = data[index].id + 1
+        return id
+    }
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        addImages()
+        const id = determineId()
+        const notice = new Notice(id, noticeType, petName, images, petSpecie, petBreed)
+        console.log(notice)
+        // data.push(notice)
+    }
+
 
     return (
         <>
@@ -72,8 +82,8 @@ const Form = () => {
                         type='file'
                         ref={fileInputRef}
                     />
-                    {selectedFile}
                 </label>
+                <button type='submit'>Submit</button>
             </form>
         </>
     )
