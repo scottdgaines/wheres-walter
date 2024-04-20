@@ -8,6 +8,9 @@ const Form = () => {
     const [images, setImages] = useState<string[] | []>([])
     const [petSpecie, setPetSpecie] = useState<string>('Dog')
     const [petBreed, setPetBreed] = useState<string>('')
+    const [petDescription, setPetDescription] = useState<string>('')
+    const [dateLost, setDateLost] = useState<string>('')
+    const [chipNum, setChipNum] = useState<number>()
     const fileInputRef = createRef<HTMLInputElement>()
 
     const addImages = () => {
@@ -16,8 +19,8 @@ const Form = () => {
         }
     }
 
-    const determineId = () => {
-        const index = data.length + 1
+    const determineId = (): number => {
+        const index = data.length - 1
         const id = data[index].id + 1
         return id
     }
@@ -27,10 +30,14 @@ const Form = () => {
         addImages()
         const id = determineId()
         const notice = new Notice(id, noticeType, petName, images, petSpecie, petBreed)
-        console.log(notice)
-        // data.push(notice)
+        data.push(notice)
     }
 
+    const parseText = (event) => {
+        const num = event.target.value.parseInt()
+        setChipNum(num)
+        console.log(chipNum)
+    }
 
     return (
         <>
@@ -76,6 +83,33 @@ const Form = () => {
                     />
                 </label>
                 <br/>
+                <label>
+                    Please Describe the Animal's Appearance:
+                    <input 
+                        type='text' 
+                        value={petDescription}
+                        onChange={(event) => setPetDescription(event.target.value)}
+                    />
+                </label>
+                <br/>
+                <label>
+                    When did you lose or find the animal?
+                    <input 
+                        type='text'
+                        value={dateLost}
+                        placeholder='mm/dd/yyyy'
+                        onChange={(event) => setDateLost(event.target.value)}
+                    />
+                </label>
+                <br/>
+                <label>
+                    If the animal has a chip, please enter the number here:
+                    <input 
+                        type='text'
+                        value={chipNum}
+                        onChange={(event) => parseText(event)}
+                    />
+                </label>
                 <label>
                     Images
                     <input 
