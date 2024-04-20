@@ -1,12 +1,81 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import homeIcon from '../../assets/home-icon.png'
+import React, { useState, createRef } from 'react'
 
 const Form = () => {
+    const [noticeType, setNoticeType] = useState<string>('Lost')
+    const [petName, setPetName] = useState<string>('')
+    const [images, setImages] = useState<string | null>(null)
+    const [petSpecie, setPetSpecie] = useState<string>('Dog')
+    const [petBreed, setPetBreed] = useState<string>('')
+    const fileInputRef = createRef<HTMLInputElement>()
+
+    console.log(petName)
+    console.log(noticeType)
+    console.log(images)
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+    
+        if (fileInputRef.current && fileInputRef.current.files && fileInputRef.current.files.length) {
+            setImages(fileInputRef.current.files[0].name)
+        }
+    }
+
+    const selectedFile = images && <p>Selected File: {images}</p>
+
     return (
-        <div>
-            <p>form</p>
-        </div>
+        <>
+        <h1>Create a New Notice</h1>
+            <form className='form-container' onSubmit={handleSubmit}>
+               <br/>
+               <label>
+                    Notice Type
+                    <select value={noticeType} onChange={(event) => setNoticeType(event.target.value)}>
+                        <option value='Lost'>Lost</option>
+                        <option value='Found'>Found</option>
+                    </select>
+                </label>
+                <br/>
+                <label>
+                    Pet Name
+                    <input 
+                        name='petName' 
+                        type='text' 
+                        value={petName} 
+                        onChange={(event) => setPetName(event.target.value)} 
+                    />
+                </label>
+                <br/>
+                <label>
+                    Pet Specie
+                    <select value={petSpecie} onChange={(event) => setPetSpecie(event.target.value)}>
+                        <option value='Dog'>Dog</option>
+                        <option value='Cat'>Cat</option>
+                        <option value='Bird'>Bird</option>
+                        <option value='Snake'>Snake</option>
+                        <option value='Spider'>Spider</option>
+                    </select>
+                </label>
+                <br/>
+                <label>
+                    Pet Breed
+                    <input
+                        name='petBreed'
+                        type='text'
+                        value={petBreed}
+                        onChange={(event) => setPetBreed(event.target.value)}
+                    />
+                </label>
+                <br/>
+                <label>
+                    Images
+                    <input 
+                        type='file'
+                        ref={fileInputRef}
+                    />
+                    {selectedFile}
+                </label>
+            </form>
+        </>
     )
 }
 

@@ -16,7 +16,7 @@ const Nav = () => {
         <div className='logo-container'>
           <div>
             <p className='nav-title'>Where's Walter</p>
-            <p className='tagline'>Bringing furry friends home</p>
+            <p className='tagline'>Bringing Furry Friends Home</p>
           </div>
           <img src={logo} className='logo' />
         </div>
