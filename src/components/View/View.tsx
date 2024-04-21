@@ -4,6 +4,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Notice } from '../../interfaces';
 import errorImage from '../../assets/error-image.jpeg';
 import homeIcon from '../../assets/home-icon.png';
+import prevIcon from '../../assets/prev-icon.png'
+import nextIcon from '../../assets/next-icon.png'
 
 type ViewProps = {
     notices: Notice[]
@@ -105,8 +107,8 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const contact = determineContact()
     const imageSRC = notice ? image : errorImage;
     const additionalImages = renderAdditionalImages();
-    const prevButton = findCurrentIndex() > 0 && <button className="nav-button left" onClick={() => navigateNotices('prev')}>Previous</button>;
-    const nextButton = findCurrentIndex() < navigationArray.length - 1 && <button className="nav-button right" onClick={() => navigateNotices('next')}>Next</button>;
+    const prevButton = findCurrentIndex() > 0 && <img src={prevIcon} className="nav-button left" onClick={() => navigateNotices('prev')} />;
+    const nextButton = findCurrentIndex() < navigationArray.length - 1 && <img src={nextIcon} className="nav-button right" onClick={() => navigateNotices('next')} />;
     const noticeBanner = notice && notice.noticeType == "Lost" ? "notice-banner lost" : "notice-banner found";
 
   return (

@@ -52,12 +52,11 @@
     text-align: center;
     font-style: italic;
     margin-top: 0px;
-
 }
 
-button {
-    width: 75px;
-    border-radius: 10px;
+.nav-button {
+    width: 45px;
+    padding: 10px; 
     cursor: pointer;
 }
 
@@ -88,12 +87,11 @@ button {
 
 .home-button {
     width: 4vw;
-    
+    margin-top: 5px;
 }
 
 .thumbnail {
     width: 10vw;
-    height: ;
     margin: 5px;
     cursor: pointer;
 }
