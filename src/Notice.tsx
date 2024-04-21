@@ -1,3 +1,5 @@
+import { data } from './data'
+
 class Notice {
     id: number;
     noticeType: string;
@@ -13,8 +15,8 @@ class Notice {
     contactEmail: string;
     reward: boolean;
 
-    constructor(id: number, type: string, name: string, images:string[] | null, specie: string, breed: string) {
-        this.id = id;
+    constructor(type: string, name: string, images:string[] | null, specie: string, breed: string, chipNum: string) {
+        this.id = this.determineId();
         this.noticeType = type;
         this.petName = name;
         this.images = images;
@@ -22,11 +24,24 @@ class Notice {
         this.petBreed = breed;
         this.petDescription = 'jello';
         this.dateLost = '01/02/1234';
-        this.chipNum = 1234;
+        this.chipNum = this.parseNumber(chipNum);
         this.petNotes = 'jello';
         this.contactNum = '123-123-1234';
         this.contactEmail = 'example@example.com';
         this.reward = true
+    }
+
+    determineId = (): number => {
+        const index = data.length - 1
+        const id = data[index].id + 1
+        return id
+    }
+
+    parseNumber = (chipNum: string):number => {
+        console.log(chipNum)
+        const num = parseInt(chipNum)
+        console.log(num)
+        return num
     }
 }
 

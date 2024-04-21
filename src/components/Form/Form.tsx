@@ -1,6 +1,7 @@
 import React, { useState, createRef } from 'react'
 import Notice from '../../Notice'
 import { data } from '../../data'
+import './Form.css'
 
 const Form = () => {
     const [noticeType, setNoticeType] = useState<string>('Lost')
@@ -10,7 +11,7 @@ const Form = () => {
     const [petBreed, setPetBreed] = useState<string>('')
     const [petDescription, setPetDescription] = useState<string>('')
     const [dateLost, setDateLost] = useState<string>('')
-    const [chipNum, setChipNum] = useState<number>()
+    const [chipNum, setChipNum] = useState<string>('')
     const fileInputRef = createRef<HTMLInputElement>()
 
     const addImages = () => {
@@ -19,32 +20,20 @@ const Form = () => {
         }
     }
 
-    const determineId = (): number => {
-        const index = data.length - 1
-        const id = data[index].id + 1
-        return id
-    }
-
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         addImages()
-        const id = determineId()
-        const notice = new Notice(id, noticeType, petName, images, petSpecie, petBreed)
+        const notice = new Notice(noticeType, petName, images, petSpecie, petBreed, chipNum)
+        console.log(notice)
         data.push(notice)
     }
 
-    const parseText = (event) => {
-        const num = event.target.value.parseInt()
-        setChipNum(num)
-        console.log(chipNum)
-    }
-
     return (
-        <>
-        <h1>Create a New Notice</h1>
-            <form className='form-container' onSubmit={handleSubmit}>
-               <br/>
-               <label>
+        <div className='form-container'>
+            <h1>Create a New Notice</h1>
+            <form onSubmit={handleSubmit}>
+            <br/>
+            <label>
                     Notice Type
                     <select value={noticeType} onChange={(event) => setNoticeType(event.target.value)}>
                         <option value='Lost'>Lost</option>
@@ -107,7 +96,7 @@ const Form = () => {
                     <input 
                         type='text'
                         value={chipNum}
-                        onChange={(event) => parseText(event)}
+                        onChange={(event) => setChipNum(event.target.value)}
                     />
                 </label>
                 <label>
@@ -119,7 +108,7 @@ const Form = () => {
                 </label>
                 <button type='submit'>Submit</button>
             </form>
-        </>
+        </div>
     )
 }
 
