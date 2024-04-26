@@ -4,8 +4,10 @@ import Nav from '../Nav/Nav'
 import Home from '../Home/Home'
 import View from '../View/View'
 import Form from '../Form/Form'
+import Preview from '../Preview/Preview'
 import { data } from '../../data' //essentially my utility file where a fetch would have happened
 import { Notice } from '../../interfaces'
+
 
 const App = () => {
   const [notices, setNotices] = useState<Notice[]>([])
@@ -26,6 +28,7 @@ const App = () => {
         <Route path='/' element={<Home notices={notices} />} />
         <Route path='/:id' element={<View notices={notices} />} />
         <Route path='/form' element={<Form />} />
+        {/* <Route path='/preview' element={<Preview notice={notice} />} /> */}
       </Routes>
     </main>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Notice } from '../../interfaces'
 import Card from '../Card/Card'
 import './Browse.css'
