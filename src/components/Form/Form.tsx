@@ -6,7 +6,7 @@ import './Form.css'
 
 const Form = () => {
     const [noticeType, setNoticeType] = useState<string>('Found')
-    const [reward, setReward] = useState<string | null>(null)
+    const [reward, setReward] = useState<boolean | null>(null)
     const [petName, setPetName] = useState<string>('')
     const [images, setImages] = useState<string[] | []>([])
     const [petSpecie, setPetSpecie] = useState<string>('Dog')
@@ -37,7 +37,7 @@ const Form = () => {
         <>
             <label>
                 Are you offering a reward? 
-                    <select value={reward} onChange={(event) => setReward(event.target.value)}>   
+                    <select value={reward && reward.toString()} onChange={(event) => setReward(event.target.value === 'true')}>   
                         <option value='true'>Yes</option>
                         <option value='false'>No</option>
                     </select>
