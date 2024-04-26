@@ -13,9 +13,9 @@ class Notice {
     petNotes: string;
     contactNum: string;
     contactEmail: string;
-    reward: boolean;
+    reward: boolean | null;
 
-    constructor(type: string, name: string, images:string[] | null, specie: string, breed: string, chipNum: string) {
+    constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string, chipNum: string) {
         this.id = this.determineId();
         this.noticeType = type;
         this.petName = name;
@@ -28,7 +28,7 @@ class Notice {
         this.petNotes = 'jello';
         this.contactNum = '123-123-1234';
         this.contactEmail = 'example@example.com';
-        this.reward = true
+        this.reward = reward
     }
 
     determineId = (): number => {
@@ -38,9 +38,7 @@ class Notice {
     }
 
     parseNumber = (chipNum: string):number => {
-        console.log(chipNum)
         const num = parseInt(chipNum)
-        console.log(num)
         return num
     }
 }

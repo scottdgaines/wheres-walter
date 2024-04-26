@@ -1,10 +1,12 @@
 import React, { useState, createRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Notice from '../../Notice'
 import { data } from '../../data'
 import './Form.css'
 
 const Form = () => {
-    const [noticeType, setNoticeType] = useState<string>('Lost')
+    const [noticeType, setNoticeType] = useState<string>('Found')
+    const [reward, setReward] = useState<boolean | null>(null)
     const [petName, setPetName] = useState<string>('')
     const [images, setImages] = useState<string[] | []>([])
     const [petSpecie, setPetSpecie] = useState<string>('Dog')
@@ -13,6 +15,7 @@ const Form = () => {
     const [dateLost, setDateLost] = useState<string>('')
     const [chipNum, setChipNum] = useState<string>('')
     const fileInputRef = createRef<HTMLInputElement>()
+    const navigate = useNavigate()
 
     const addImages = () => {
         if (fileInputRef.current && fileInputRef.current.files && fileInputRef.current.files.length) {
@@ -23,92 +26,112 @@ const Form = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         addImages()
-        const notice = new Notice(noticeType, petName, images, petSpecie, petBreed, chipNum)
+        const notice = new Notice(noticeType, reward, petName, images, petSpecie, petBreed, chipNum)
+        // data.push(notice)
         console.log(notice)
-        data.push(notice)
+
+        // navigate(`/preview/${notice.id}`, {state: {notice}})
     }
 
-    return (
-        <div className='form-container'>
-            <h1>Create a New Notice</h1>
-            <form onSubmit={handleSubmit}>
-            <br/>
+    const rewardInput = noticeType === 'Lost' &&  
+        <>
             <label>
-                    Notice Type
-                    <select value={noticeType} onChange={(event) => setNoticeType(event.target.value)}>
-                        <option value='Lost'>Lost</option>
-                        <option value='Found'>Found</option>
+                Are you offering a reward? 
+                    <select value={reward && reward.toString()} onChange={(event) => setReward(event.target.value === 'true')}>   
+                        <option value='true'>Yes</option>
+                        <option value='false'>No</option>
                     </select>
-                </label>
+            </label>
+            <br/>
+        </>
+    const dynamicVerb = noticeType === 'Lost' ? 'lose' : 'find'
+
+    return (
+        <>
+            <div className='form-container'>
+                <h1>Create a New Notice</h1>
+                <form onSubmit={handleSubmit}>
                 <br/>
                 <label>
-                    Pet Name
-                    <input 
-                        name='petName' 
-                        type='text' 
-                        value={petName} 
-                        onChange={(event) => setPetName(event.target.value)} 
-                    />
-                </label>
-                <br/>
-                <label>
-                    Pet Specie
-                    <select value={petSpecie} onChange={(event) => setPetSpecie(event.target.value)}>
-                        <option value='Dog'>Dog</option>
-                        <option value='Cat'>Cat</option>
-                        <option value='Bird'>Bird</option>
-                        <option value='Snake'>Snake</option>
-                        <option value='Spider'>Spider</option>
-                    </select>
-                </label>
-                <br/>
-                <label>
-                    Pet Breed
-                    <input
-                        name='petBreed'
-                        type='text'
-                        value={petBreed}
-                        onChange={(event) => setPetBreed(event.target.value)}
-                    />
-                </label>
-                <br/>
-                <label>
-                    Please Describe the Animal's Appearance:
-                    <input 
-                        type='text' 
-                        value={petDescription}
-                        onChange={(event) => setPetDescription(event.target.value)}
-                    />
-                </label>
-                <br/>
-                <label>
-                    When did you lose or find the animal?
-                    <input 
-                        type='text'
-                        value={dateLost}
-                        placeholder='mm/dd/yyyy'
-                        onChange={(event) => setDateLost(event.target.value)}
-                    />
-                </label>
-                <br/>
-                <label>
-                    If the animal has a chip, please enter the number here:
-                    <input 
-                        type='text'
-                        value={chipNum}
-                        onChange={(event) => setChipNum(event.target.value)}
-                    />
-                </label>
-                <label>
-                    Images
-                    <input 
-                        type='file'
-                        ref={fileInputRef}
-                    />
-                </label>
-                <button type='submit'>Submit</button>
-            </form>
-        </div>
+                        Notice Type
+                        <select value={noticeType} onChange={(event) => setNoticeType(event.target.value)}>
+                            <option value='Lost'>Lost</option>
+                            <option value='Found'>Found</option>
+                        </select>
+                    </label>
+                    <br/>
+                    <label>
+                        Pet Name
+                        <input 
+                            name='petName' 
+                            type='text' 
+                            value={petName} 
+                            onChange={(event) => setPetName(event.target.value)} 
+                        />
+                    </label>
+                    <br/>
+                    <label>
+                        Pet Specie
+                        <select value={petSpecie} onChange={(event) => setPetSpecie(event.target.value)}>
+                            <option value='Dog'>Dog</option>
+                            <option value='Cat'>Cat</option>
+                            <option value='Bird'>Bird</option>
+                            <option value='Snake'>Snake</option>
+                            <option value='Spider'>Spider</option>
+                        </select>
+                    </label>
+                    <br/>
+                    <label>
+                        Pet Breed
+                        <input
+                            name='petBreed'
+                            type='text'
+                            value={petBreed}
+                            onChange={(event) => setPetBreed(event.target.value)}
+                        />
+                    </label>
+                    <br/>
+                    <label>
+                        Please Describe the Animal's Appearance:
+                        <input 
+                            type='text' 
+                            value={petDescription}
+                            onChange={(event) => setPetDescription(event.target.value)}
+                        />
+                    </label>
+                    <br/>
+                    <label>
+                        When did you {dynamicVerb} the animal?
+                        <input 
+                            type='text'
+                            value={dateLost}
+                            placeholder='mm/dd/yyyy'
+                            onChange={(event) => setDateLost(event.target.value)}
+                        />
+                    </label>
+                    <br/>
+                    <label>
+                        If the animal has a chip, please enter the number here:
+                        <input 
+                            type='text'
+                            value={chipNum}
+                            onChange={(event) => setChipNum(event.target.value)}
+                        />
+                    </label>
+                    <br/>
+                    {rewardInput}
+                    <label>
+                        Images
+                        <input 
+                            type='file'
+                            ref={fileInputRef}
+                        />
+                    </label>
+                    <br/>
+                    <button type='submit'>Preview</button>
+                </form>
+            </div>
+        </>
     )
 }
 
