@@ -2,6 +2,7 @@ import React, { useState, createRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Notice from '../../Notice'
 import { data } from '../../data'
+import { preview } from '../../preview'
 import './Form.css'
 
 const Form = () => {
@@ -27,10 +28,8 @@ const Form = () => {
         event.preventDefault()
         addImages()
         const notice = new Notice(noticeType, reward, petName, images, petSpecie, petBreed, chipNum)
-        // data.push(notice)
-        console.log(notice)
-
-        // navigate(`/preview/${notice.id}`, {state: {notice}})
+        preview.push(notice) //updating Global State
+        navigate(`/preview/${notice.id}`)
     }
 
     const rewardInput = noticeType === 'Lost' &&  
