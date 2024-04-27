@@ -14,18 +14,19 @@ class Notice {
     contactNum: string;
     contactEmail: string;
     reward: boolean | null;
+    petNotes: string;
 
-    constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string, chipNum: string) {
+    constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string, petDescription: string, chipNum: string, petNotes: string) {
         this.id = this.determineId();
         this.noticeType = type;
         this.petName = name;
         this.images = images;
         this.petSpecie = specie;
         this.petBreed = breed;
-        this.petDescription = 'jello';
+        this.petDescription = petDescription;
         this.dateLost = '01/02/1234';
         this.chipNum = this.parseNumber(chipNum);
-        this.petNotes = 'jello';
+        this.petNotes = petNotes;
         this.contactNum = '123-123-1234';
         this.contactEmail = 'example@example.com';
         this.reward = reward

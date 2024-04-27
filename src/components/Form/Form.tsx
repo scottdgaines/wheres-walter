@@ -15,6 +15,7 @@ const Form = () => {
     const [petDescription, setPetDescription] = useState<string>('')
     const [dateLost, setDateLost] = useState<string>('')
     const [chipNum, setChipNum] = useState<string>('')
+    const [petNotes, setPetNotes] = useState<string>('')
     const fileInputRef = createRef<HTMLInputElement>()
     const navigate = useNavigate()
 
@@ -27,7 +28,7 @@ const Form = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         addImages()
-        const notice = new Notice(noticeType, reward, petName, images, petSpecie, petBreed, chipNum)
+        const notice = new Notice(noticeType, reward, petName, images, petSpecie, petBreed, petDescription, chipNum, petNotes)
         preview.push(notice) //updating Global State
         navigate(`/preview/${notice.id}`)
     }
@@ -52,7 +53,7 @@ const Form = () => {
                 <form onSubmit={handleSubmit}>
                 <br/>
                 <label>
-                        Notice Type
+                        What type of Notice are you creating?
                         <select value={noticeType} onChange={(event) => setNoticeType(event.target.value)}>
                             <option value='Lost'>Lost</option>
                             <option value='Found'>Found</option>
@@ -70,7 +71,7 @@ const Form = () => {
                     </label>
                     <br/>
                     <label>
-                        Pet Specie
+                        What is the Pet Species?
                         <select value={petSpecie} onChange={(event) => setPetSpecie(event.target.value)}>
                             <option value='Dog'>Dog</option>
                             <option value='Cat'>Cat</option>
@@ -81,7 +82,7 @@ const Form = () => {
                     </label>
                     <br/>
                     <label>
-                        Pet Breed
+                        What is their breed?
                         <input
                             name='petBreed'
                             type='text'
@@ -124,6 +125,15 @@ const Form = () => {
                         <input 
                             type='file'
                             ref={fileInputRef}
+                        />
+                    </label>
+                    <br/>
+                    <label>
+                        Please list any other relevent information (temperment, location last seen, etc)
+                        <input 
+                            type='text'
+                            value={petNotes}
+                            onChange={(event) => setPetNotes(event.target.value)}
                         />
                     </label>
                     <br/>
