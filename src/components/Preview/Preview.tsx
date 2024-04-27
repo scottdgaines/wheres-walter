@@ -25,6 +25,7 @@ const Preview = () => {
             <p>Animal's Appearance: {notice.petDescription}</p>
             <p>Date {dynamicVerb}: {notice.dateLost}</p>
             <p>Chip Number: {notice.chipNum}</p>
+            <p>Notes: {notice.petNotes}</p>
             <button onClick={handleClick}>Submit</button>
             {/* <div className='information-container'>
                 <h1>{notice.name}</h1>
