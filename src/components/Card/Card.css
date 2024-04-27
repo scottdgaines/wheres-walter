@@ -1,3 +1,8 @@
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .card {
     flex-direction: column;
     display: flex;
@@ -16,4 +21,7 @@
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
+}
+h3 {
+    text-decoration: none;
 }
