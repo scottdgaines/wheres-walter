@@ -34,7 +34,6 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
     }, [notices])  
 
     const toggleSelected = (categ: string) => {
-      console.log('jello')
       if (categ == 'Lost' && !lostSelected) {
         setLostSelected(true) 
         setFoundSelected(false)
@@ -42,7 +41,6 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
         setFoundSelected(true)
         setLostSelected(false)
       }
-
     }
 
   return (
