@@ -107,18 +107,18 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     const contact = determineContact()
     const imageSRC = notice ? image : errorImage;
     const additionalImages = renderAdditionalImages();
-    const prevButton = findCurrentIndex() > 0 && <img src={prevIcon} className="nav-button left" onClick={() => navigateNotices('prev')} />;
-    const nextButton = findCurrentIndex() < navigationArray.length - 1 && <img src={nextIcon} className="nav-button right" onClick={() => navigateNotices('next')} />;
-    const noticeBanner = notice && notice.noticeType == "Lost" ? "notice-banner lost" : "notice-banner found";
+    const prevButtonStyling = findCurrentIndex() > 0 ? 'nav-button' : 'nav-button disabled';
+    const nextButtonStyling = findCurrentIndex() < navigationArray.length - 1 ? 'nav-button' : 'nav-button disabled'
+    const noticeBanner = notice && notice.noticeType == 'Lost' ? 'notice-banner lost' : 'notice-banner found';
 
   return (
-    <>
+    <div className='background'>
         <div className='navigation-container'>
-            {prevButton}
+            <img src={prevIcon} className={`${prevButtonStyling}`} onClick={() => navigateNotices('prev')} />
             <Link to='/'>
                 <img src={homeIcon} className='home-button' />
             </Link>
-            {nextButton}
+            <img src={nextIcon} className={`${nextButtonStyling}`} onClick={() => navigateNotices('next')} />
         </div>
         <div className="view-container">
             <p className={noticeBanner}>{noticeType}</p>
@@ -140,7 +140,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
                 </div>
             </div>
         </div>
-    </>
+    </div>
   )
 };
 
