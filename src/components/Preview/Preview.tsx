@@ -4,6 +4,7 @@ import { preview } from '../../preview'
 import { data } from '../../data'
 import { useNavigate } from 'react-router-dom'
 import { Notice } from '../../interfaces'
+import '../Form/Form.css'
 
 const Preview = () => {
     const navigate = useNavigate()

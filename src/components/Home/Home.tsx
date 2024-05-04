@@ -10,8 +10,6 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = ({ notices }) => {
     const [lostNotices, setLostNotices] = useState<Notice[]>([])
     const [foundNotices, setFoundNotices] = useState<Notice[]>([])
-    const [foundSelected, setFoundSelected] = useState<boolean>(false)
-    const [lostSelected, setLostSelected] = useState<boolean>(true)
 
     const sortNotices = () => {
         const newFoundNotices: Notice[] = []
@@ -33,20 +31,10 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
         sortNotices()
     }, [notices])  
 
-    const toggleSelected = (categ: string) => {
-      if (categ == 'Lost' && !lostSelected) {
-        setLostSelected(true) 
-        setFoundSelected(false)
-      } else if ( categ == 'Found' && !foundSelected) {
-        setFoundSelected(true)
-        setLostSelected(false)
-      }
-    }
-
   return (
     <div className='browse-container'>
-        <Browse lostNotices={lostNotices} toggleSelected={toggleSelected} selected={lostSelected} />
-        <Browse foundNotices={foundNotices} toggleSelected={toggleSelected} selected={foundSelected} />
+        <Browse lostNotices={lostNotices} />
+        <Browse foundNotices={foundNotices} />
     </div>
   )
 }

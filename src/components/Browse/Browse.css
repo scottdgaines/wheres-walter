@@ -1,10 +1,10 @@
 .title {
     font-size: 50px;
     background: darkgray;
-    border: 1px solid darkgray;
+    border: 1px solid black;
     border-radius: 10px;
     width: 100%;
-    cursor: pointer;
+    margin: 10px 0px 0px 0px;
 }
 
 .cards-container {
@@ -12,9 +12,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 50vw;
-    background: lightgray;
-}
-
-.selected {
     background: white;
+    margin-top: 0px;
+    border: 2px solid darkgray;
+    height: 100vh;
+
 }
