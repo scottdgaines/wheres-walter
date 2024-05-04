@@ -4,10 +4,42 @@
     align-items: center;
     border: 2px solid darkgray;
     border-radius: 10px;
-    padding: 0px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 25px;
+    padding: 25px;
 }
 
 label {
-  border: 2px solid red;
+  font-weight: bold;
+}
 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 5px;
+}
+
+input,
+textarea,
+select {
+  width: 150px;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+
+.long {
+  width: 350px;
+  height: 100px;
+}
+
+button {
+  border-radius: 6px;
+  height: 35px;
+  margin: auto;
+}
+
+.image {
+  width: 200px;
 }

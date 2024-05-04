@@ -19,17 +19,11 @@ const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices, toggleSelect
     return <Card id={notice.id} notice={notice} />
   })
 
-  const handleClick = () => {
-    if (toggleSelected) {
-      toggleSelected(title)
-    }
-  }
-
   const highlight = selected ? 'cards-container selected' : 'cards-container'
 
   return (
     <div>
-      <p className='title' onClick={handleClick}>{title}</p>
+      <p className='title'>{title}</p>
       <div className={highlight}>
         {cards}
       </div>

@@ -8,6 +8,7 @@ import Preview from '../Preview/Preview'
 import { preview } from '../../preview'
 import { data } from '../../data' //essentially my utility file where a fetch would have happened
 import { Notice } from '../../interfaces'
+import './App.css'
 
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
   }, [data])
 
   return (
-    <main>
+    <main className='main'>
       <Nav />
       <Routes>
         <Route path='/' element={<Home notices={notices} />} />
