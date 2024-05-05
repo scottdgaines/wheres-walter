@@ -2,9 +2,9 @@
     font-size: 50px;
     background: darkgray;
     border: 1px solid black;
-    border-radius: 10px;
-    width: 100%;
-    margin: 10px 0px 0px 0px;
+    border-radius: 8px;
+    margin: 10px 2px 10px 2px;
+    text-align: center;
 }
 
 .cards-container {
@@ -13,8 +13,7 @@
     flex-wrap: wrap;
     width: 50vw;
     background: white;
-    margin-top: 0px;
     border: 2px solid darkgray;
     height: 100vh;
-
+    padding-top: 20px;
 }
