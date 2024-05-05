@@ -11,7 +11,7 @@ type BrowseProps = {
   selected?: boolean;
 }
 
-const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices, toggleSelected, selected }) => {
+const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices, selected }) => {
   const notices = lostNotices ? lostNotices : foundNotices
   const title = lostNotices ? 'Lost' : 'Found'
   
@@ -19,12 +19,10 @@ const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices, toggleSelect
     return <Card id={notice.id} notice={notice} />
   })
 
-  const highlight = selected ? 'cards-container selected' : 'cards-container'
-
   return (
     <div>
       <p className='title'>{title}</p>
-      <div className={highlight}>
+      <div className='cards-container'>
         {cards}
       </div>
     </div>

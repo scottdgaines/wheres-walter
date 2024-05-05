@@ -19,13 +19,9 @@ const Preview = () => {
         navigate('/')
     }
 
-    const handleNavigate = () => {
-        navigate(-1)
-    }
-
     return (
         <div>
-            <img src={prevButton} className='nav-button' onClick={handleNavigate} />
+            <img src={prevButton} className='nav-button' onClick={() => navigate(-1)} />
             <p>Notice Type:{notice.noticeType}</p>
             <p>Pet Name: {notice.petName}</p>
             <p>Pet Specie: {notice.petSpecie}</p>
