@@ -1,5 +1,5 @@
 .nav-bar {
-    height: 15vh;
+    height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,11 +10,11 @@
 .logo-container {
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 .nav-title {
-    font-size: 30px;
+    font-size: 33px;
     margin-bottom: 0px;
 }
 
@@ -27,8 +27,30 @@
 }
 
 .icon {
-    width: 70px;
+    width: 40px;
     margin-right: 20px;
-    margin-top: 10px;
- 
+    margin-top: 35px;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext{
+    visibility: visible;
 }
