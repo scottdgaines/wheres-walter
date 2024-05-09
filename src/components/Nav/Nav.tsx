@@ -20,12 +20,10 @@ const Nav = () => {
           </div>
           <img src={logo} className='logo' />
         </div>
-        <div className='tooltip'>
-          <span className='tooltiptext'>Create a New Notice</span>
           <Link to={dynamicPath} className='tooltip'>
-            <img src={dynamicIcon} className='icon'/>
+              <img src={dynamicIcon} className='icon'/>
+              <span className='tooltiptext'>Create a New Notice</span>
           </Link>
-        </div>
     </div>
   )
 }
