@@ -14,7 +14,6 @@ class Notice {
     contactNum: string;
     contactEmail: string;
     reward: boolean | null;
-    petNotes: string;
 
     constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string, petDescription: string, chipNum: string, petNotes: string) {
         this.id = this.determineId();

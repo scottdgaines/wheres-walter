@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Nav from '../Nav/Nav'
+import Nav from '../Header/Header'
 import Home from '../Home/Home'
 import View from '../View/View'
 import Form from '../Form/Form'

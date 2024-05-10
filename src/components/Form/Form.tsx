@@ -1,6 +1,6 @@
 import React, { useState, createRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Notice from '../../Notice'
+import Notice from '../../notice'
 import { preview } from '../../preview'
 import './Form.css'
 
