@@ -14,7 +14,14 @@
     border-radius: 10px;
     box-shadow: 5px 5px lightgrey;
     margin: 8px;
+    margin-top: 4px;
 }
+
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+    }
 
 .thumbnail {
     min-width: 175px;
