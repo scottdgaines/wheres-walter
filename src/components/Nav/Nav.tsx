@@ -8,8 +8,9 @@ import homeIcon from '../../assets/home-icon.png'
 const Nav = () => {
   const location = useLocation()
 
-  const dynamicNavIcon = location.pathname == '/form' ? homeIcon : formIcon
+  const dynamicIcon = location.pathname == '/form' ? homeIcon : formIcon
   const dynamicPath = location.pathname == '/form' ? '/' : '/form'
+  const toolTip = location.pathname == '/' && <p className='tool-tip-text'>Create New Notice</p>
 
   return (
     <div className='nav-bar'>
@@ -20,9 +21,12 @@ const Nav = () => {
           </div>
           <img src={logo} className='logo' />
         </div>
-        <Link to={dynamicPath} >
-          <img src={dynamicNavIcon} className='icon' />
-        </Link>
+        <div className='tool-tip'>
+          {toolTip}
+          <Link to={dynamicPath} >
+              <img src={dynamicIcon} className='icon'/>
+          </Link>
+        </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 .nav-bar {
-    height: 15vh;
+    height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,11 +10,11 @@
 .logo-container {
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 .nav-title {
-    font-size: 30px;
+    font-size: 33px;
     margin-bottom: 0px;
 }
 
@@ -27,8 +27,35 @@
 }
 
 .icon {
-    width: 70px;
+    width: 40px;
+    margin-top: 35px;
+    object-fit: cover;
+}
+
+.tool-tip {
+    width: 40px;
+    height: 0px;
     margin-right: 20px;
-    margin-top: 10px;
- 
+    position: relative;
+    display: inline-block;
+}
+
+.tool-tip .tool-tip-text {
+    visibility: hidden;
+    position: absolute;
+    background-color: gray;
+    color: white;
+    border-radius: 4px;
+    padding: 4px;
+    width: 150px;
+    top: 60px;
+    right: -20px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.tool-tip:hover .tool-tip-text {
+    visibility: visible;
+    opacity: 1;
 }
