@@ -10,7 +10,7 @@ const Nav = () => {
 
   const dynamicIcon = location.pathname == '/form' ? homeIcon : formIcon
   const dynamicPath = location.pathname == '/form' ? '/' : '/form'
-  const toolTip = location.pathname == '/' ? 'Create New Notice' : 'Return Home'
+  const toolTip = location.pathname == '/form' ? 'Return Home' : 'Create New Notice'
 
   return (
     <div className='nav-bar'>

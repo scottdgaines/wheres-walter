@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './View.css';
+import './Notice.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Notice } from '../../interfaces';
 import errorImage from '../../assets/error-image.jpeg';
