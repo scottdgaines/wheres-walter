@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './Nav.css'
 import { Link, useNavigate } from 'react-router-dom'
 import homeIcon from '../../assets/home-icon.png';
 import prevIcon from '../../assets/prev-icon.png'

@@ -1,0 +1,17 @@
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav-button {
+    width: 45px;
+    padding: 10px; 
+    cursor: pointer;
+}
+
+.home-button {
+    width: 55px;
+    margin-top: 5px;
+}
