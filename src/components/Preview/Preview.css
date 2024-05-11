@@ -3,3 +3,23 @@
     padding: 10px; 
     cursor: pointer;
 }
+
+button {
+    border-radius: 8px;
+    height: 40px;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: lightgray;
+  }
+
+ button:hover {
+    background-color: white;
+    color: black;
+ } 
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }

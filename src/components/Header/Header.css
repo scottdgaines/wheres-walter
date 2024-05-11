@@ -1,0 +1,61 @@
+.nav-bar {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 25px;
+}
+
+.nav-title {
+    font-size: 33px;
+    margin-bottom: 0px;
+}
+
+.tagline {
+    margin-top: 0px;
+}
+
+.logo {
+    height: 100%;
+}
+
+.icon {
+    width: 40px;
+    margin-top: 35px;
+    object-fit: cover;
+}
+
+.tool-tip {
+    width: 40px;
+    height: 0px;
+    margin-right: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.tool-tip .tool-tip-text {
+    visibility: hidden;
+    position: absolute;
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
+    width: 150px;
+    top: 28px;
+    right: 45px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.tool-tip:hover .tool-tip-text {
+    visibility: visible;
+    opacity: 1;
+}

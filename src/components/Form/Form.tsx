@@ -1,8 +1,9 @@
 import React, { useState, createRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Notice from '../../Notice'
-import { preview } from '../../preview'
+import NoticeClass from '../../NoticeClass'
+import { previewData } from '../../previewData'
 import './Form.css'
+import { NoticeDetails } from '../../interfaces'
 
 const Form = () => {
     const [noticeType, setNoticeType] = useState<string>('Found')
@@ -15,6 +16,8 @@ const Form = () => {
     const [dateLost, setDateLost] = useState<string>('')
     const [chipNum, setChipNum] = useState<string>('')
     const [petNotes, setPetNotes] = useState<string>('')
+    const [contactNum, setContactNum] = useState<string>('')
+    const [contactEmail, setContactEmail] = useState<string>('')
     const fileInputRef = createRef<HTMLInputElement>()
     const navigate = useNavigate()
 
@@ -27,9 +30,13 @@ const Form = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         addImages()
-        const notice = new Notice(noticeType, reward, petName, images, petSpecie, petBreed, petDescription, chipNum, petNotes)
-        preview.push(notice) //updating Global State
-        navigate(`/preview/${notice.id}`)
+        const notice = new NoticeClass(noticeType, reward, petName, images, petSpecie, petBreed, petDescription, chipNum, petNotes, contactNum, contactEmail)
+        previewData.push(notice) //updating Global State
+        if (notice) {
+            navigate(`/preview/${notice.id}`)
+        } else {
+            alert('please fill out all fields')
+        }
     }
 
     const rewardInput = noticeType === 'Lost' &&  
@@ -40,12 +47,14 @@ const Form = () => {
                 <option value='false'>No</option>
             </select>
         </div>
+    
     const dynamicVerbiage = noticeType === 'Lost' ? '6. When did you notice the animal was missing' : '6. When did you find the animal'
 
     return (
         <div className='form-container'>
             <h1>Create a New Notice</h1>
             <form onSubmit={handleSubmit}>
+                <h2>Pet Information</h2>
                 <div className='input-container'>
                     <label>1. Is the pet lost or found?</label>
                     <select value={noticeType} onChange={(event) => setNoticeType(event.target.value)}>
@@ -125,7 +134,29 @@ const Form = () => {
                         onChange={(event) => setPetNotes(event.target.value)}
                     />
                 </div>
-                <button type='submit'>Preview</button>
+                <h2>Contact Information</h2>
+                <div className='input-container'>
+                    <label>What phone number can be used to reach you?</label>
+                    <input 
+                        type='text'
+                        className='text'
+                        value={contactNum}
+                        placeholder='123-456-7890'
+                        onChange={(event) => setContactNum(event.target.value)}
+                    />
+                </div>
+                <div className='input-container'>
+                    <label>What email address can be used to reach you?</label>
+                    <input 
+                        type='text'
+                        className='text'
+                        value={contactEmail}
+                        onChange={(event) => setContactEmail(event.target.value)}
+                    />
+                </div>
+                <div className='button-container'>
+                    <button type='submit'>Preview</button>
+                </div>
             </form>
         </div>
     )

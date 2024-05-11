@@ -1,6 +1,6 @@
 import { data } from './data'
 
-class Notice {
+class NoticeClass {
     id: number;
     noticeType: string;
     petName: string;
@@ -14,9 +14,8 @@ class Notice {
     contactNum: string;
     contactEmail: string;
     reward: boolean | null;
-    petNotes: string;
 
-    constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string, petDescription: string, chipNum: string, petNotes: string) {
+    constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string, petDescription: string, chipNum: string, petNotes: string, contactNum: string, contactEmail:string) {
         this.id = this.determineId();
         this.noticeType = type;
         this.petName = name;
@@ -29,7 +28,9 @@ class Notice {
         this.petNotes = petNotes;
         this.contactNum = '123-123-1234';
         this.contactEmail = 'example@example.com';
-        this.reward = reward
+        this.reward = reward;
+        this.contactNum = contactNum;
+        this.contactEmail = contactEmail;
     }
 
     determineId = (): number => {
@@ -44,4 +45,4 @@ class Notice {
     }
 }
 
-export default Notice
+export default NoticeClass

@@ -1,34 +1,59 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import './Nav.css'
-import logo from '../../assets/logo.png'
-import formIcon from '../../assets/form-logo.png'
-import homeIcon from '../../assets/home-icon.png'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import homeIcon from '../../assets/home-icon.png';
+import prevIcon from '../../assets/prev-icon.png'
+import nextIcon from '../../assets/next-icon.png'
+import { NoticeDetails } from '../../interfaces'
 
-const Nav = () => {
-  const location = useLocation()
+type NavProps = {
+    notices: NoticeDetails[]
+    noticeIdNum: number | ', 0'
+    navigationArray: NoticeDetails[]
+};
 
-  const dynamicIcon = location.pathname == '/form' ? homeIcon : formIcon
-  const dynamicPath = location.pathname == '/form' ? '/' : '/form'
-  const toolTip = location.pathname == '/' ? 'Create New Notice' : 'Return Home'
+const Nav: React.FC<NavProps> = ({ noticeIdNum, navigationArray }) => {
+    const navigate = useNavigate()
 
-  return (
-    <div className='nav-bar'>
-        <div className='logo-container'>
-          <div>
-            <p className='nav-title'>Where's Walter</p>
-            <p className='tagline'>Bringing Furry Friends Home</p>
-          </div>
-          <img src={logo} className='logo' />
+    const findCurrentIndex = () => {
+        return navigationArray && navigationArray.findIndex((element) => {
+            return noticeIdNum === element.id
+        })
+    };
+
+    const navigateNotices = (direction: string) => {
+        let nextIndex
+
+        const currentIndex = findCurrentIndex()
+
+        if (direction === 'prev' && currentIndex > 1) {
+            nextIndex = currentIndex - 1
+        } else if (direction === 'prev' && currentIndex == 1) {
+            nextIndex = 0
+        } else if (currentIndex == 0){
+            nextIndex = 1
+        } else {
+            nextIndex = currentIndex + 1
+        }
+        
+        const navId = navigationArray[nextIndex].id
+
+        navigate(`/${navId}`)
+    };
+
+    const prevButtonStyling = findCurrentIndex() > 0 ? 'nav-button' : 'nav-button disabled';
+    const nextButtonStyling = findCurrentIndex() < navigationArray.length - 1 ? 'nav-button' : 'nav-button disabled'
+
+    return (
+        <div>
+        <div className='navigation-container'>
+                <img src={prevIcon} className={`${prevButtonStyling}`} onClick={() => navigateNotices('prev')} />
+                <Link to='/'>
+                    <img src={homeIcon} className='home-button' />
+                </Link>
+                <img src={nextIcon} className={`${nextButtonStyling}`} onClick={() => navigateNotices('next')} />
+            </div>
         </div>
-        <div className='tool-tip'>
-        <p className='tool-tip-text'>{toolTip}</p>
-          <Link to={dynamicPath} >
-              <img src={dynamicIcon} className='icon'/>
-          </Link>
-        </div>
-    </div>
-  )
+    )
 }
 
 export default Nav
