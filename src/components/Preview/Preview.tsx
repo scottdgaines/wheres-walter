@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Notice/Notice.css'
+import '../View/View.css'
 import { preview } from '../../preview'
 import { data } from '../../data'
 import { useNavigate } from 'react-router-dom'

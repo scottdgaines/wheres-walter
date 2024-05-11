@@ -1,0 +1,115 @@
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.background {
+    background-color: #f4f4f4;
+}
+
+.view-container {
+    display: flex;
+    border: 2px solid darkgray;
+    background-color: white;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 90vw;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    height: fit-content;
+    box-shadow: 5px 5px lightgrey;
+    padding: 10px 10px 75px;
+}
+
+.all-content-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.information-container {
+    margin-left: 10px;
+    width: 50%;
+}
+
+.main-image {
+    width: 40vw;
+    height: 50vh;
+    float: top;
+    object-fit: contain;
+    margin: auto;
+    padding: 2px;
+}
+
+.hidden {
+    display: none;
+}
+
+.name {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    font-size: 3rem;
+}
+
+.breed-tag {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0px;
+}
+
+.nav-button {
+    width: 45px;
+    padding: 10px; 
+    cursor: pointer;
+}
+
+.notice-banner {
+    width: max-content;
+    color: white;
+    text-align: center;
+    font-size: 4vw;
+    width: 100%;
+    margin-top: 0px;
+} 
+
+.lost {
+    background-color: red;
+}
+
+.found {
+    background-color: rgb(1, 170, 1);
+}
+
+.home-button {
+    width: 4vw;
+    margin-top: 5px;
+}
+
+.thumbnail {
+    width: 10vw;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.disabled {
+    opacity: 0.1;
+    cursor: auto;
+    pointer-events: none;
+}
+
