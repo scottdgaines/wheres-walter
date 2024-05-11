@@ -47,6 +47,7 @@ const Notice: React.FC<NoticeProps> = ({ notice }) => {
   const errorMessage = 'Something went wrong. Please try again';
   const noticeType = notice && notice.noticeType;
   const name = notice && notice.petName;
+  const sex = notice && notice.petSex;
   const breed = notice && notice.petBreed;
   const species = notice && notice.petSpecie;
   const date = determineDate()
@@ -69,7 +70,7 @@ const Notice: React.FC<NoticeProps> = ({ notice }) => {
           </div>
           <div className='information-container'>
               <h1 className='name'>{name}</h1>
-              <p className='breed-tag'>{breed} {species}</p>
+              <p className='breed-tag'>A {sex} {breed} {species}</p>
               <p>{date}</p>
               <h2>Description</h2>
               <p>{description}</p>

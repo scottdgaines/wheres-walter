@@ -7,6 +7,7 @@ class NoticeClass {
     images: string[] | [];
     petSpecie: string;
     petBreed: string;
+    petSex: string;
     petDescription: string;
     dateLost: string;
     chipNum: number;
@@ -15,13 +16,14 @@ class NoticeClass {
     contactEmail: string;
     reward: boolean | null;
 
-    constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string, petDescription: string, chipNum: string, petNotes: string, contactNum: string, contactEmail:string) {
+    constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string,  sex: string, petDescription: string, chipNum: string, petNotes: string, contactNum: string, contactEmail:string) {
         this.id = this.determineId();
         this.noticeType = type;
         this.petName = name;
         this.images = images;
         this.petSpecie = specie;
         this.petBreed = breed;
+        this.petSex = sex;
         this.petDescription = petDescription;
         this.dateLost = '01/02/1234';
         this.chipNum = this.parseNumber(chipNum);
