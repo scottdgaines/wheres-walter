@@ -9,14 +9,13 @@ import '../Form/Form.css'
 import prevButton from '../../assets/prev-icon.png'
 import './Preview.css'
 
-
 const Preview = () => {
     const [notice, setNotice] = useState<NoticeDetails>()
     const navigate = useNavigate()
 
     useEffect(() => {
         setNotice(previewData[0])
-        console.log(notice)
+        console.log('prev notice', notice)
     }, [])
 
     const handleClick = () => {
@@ -28,8 +27,7 @@ const Preview = () => {
         data.push(notice)
         navigate('/')
     }
-
-
+    
     return (
         <div>
             <img src={prevButton} className='nav-button' onClick={handleClick}/>

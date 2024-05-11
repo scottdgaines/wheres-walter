@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import NoticeClass from '../../NoticeClass'
 import { previewData } from '../../previewData'
 import './Form.css'
-import { NoticeDetails } from '../../interfaces'
 
 const Form = () => {
     const [noticeType, setNoticeType] = useState<string>('Found')
@@ -12,6 +11,7 @@ const Form = () => {
     const [images, setImages] = useState<string[] | []>([])
     const [petSpecie, setPetSpecie] = useState<string>('Dog')
     const [petBreed, setPetBreed] = useState<string>('')
+    const [petSex, setPetSex] = useState<string>('')
     const [petDescription, setPetDescription] = useState<string>('')
     const [dateLost, setDateLost] = useState<string>('')
     const [chipNum, setChipNum] = useState<string>('')
@@ -30,18 +30,17 @@ const Form = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         addImages()
-        const notice = new NoticeClass(noticeType, reward, petName, images, petSpecie, petBreed, petDescription, chipNum, petNotes, contactNum, contactEmail)
-        previewData.push(notice) //updating Global State
+        const notice = new NoticeClass(noticeType, reward, petName, images, petSpecie, petBreed, petSex, petDescription, chipNum, petNotes, contactNum, contactEmail)
         if (notice) {
+            console.log(notice)
+            previewData.push(notice) //updating Global State
             navigate(`/preview/${notice.id}`)
-        } else {
-            alert('please fill out all fields')
         }
     }
 
     const rewardInput = noticeType === 'Lost' &&  
         <div className='input-container'>
-            <label>8. Are you offering a reward? </label>
+            <label>9. Are you offering a reward? </label>
             <select value={reward && reward.toString()} onChange={(event) => setReward(event.target.value === 'true')}>   
                 <option value='true'>Yes</option>
                 <option value='false'>No</option>
@@ -91,7 +90,14 @@ const Form = () => {
                     />
                 </div>
                 <div className='input-container'>
-                    <label>5. Please describe the animal's appearance:</label>
+                    <label>5. Is the pet male or female?</label>
+                    <select value={petSex} onChange={(event) => setPetSex(event.target.value)}>
+                        <option value='Male'>Male</option>
+                        <option value='Female'>Female</option>
+                    </select>
+                </div>
+                <div className='input-container'>
+                    <label>6. Please describe the animal's appearance:</label>
                     <textarea
                         type='text' 
                         className='text long'
@@ -110,7 +116,7 @@ const Form = () => {
                     />
                 </div>
                 <div className='input-container'>
-                    <label>7. If the animal has a chip, please enter the number here:</label>
+                    <label>8. If the animal has a chip, please enter the number here:</label>
                     <input 
                         type='text'
                         value={chipNum}

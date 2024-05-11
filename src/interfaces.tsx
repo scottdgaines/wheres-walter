@@ -5,6 +5,7 @@ export interface NoticeDetails {
     images: string[],
     petBreed: string,
     petSpecie: string,
+    petSex: string,
     petDescription: string,
     dateLost: string,
     chipNum: number,
