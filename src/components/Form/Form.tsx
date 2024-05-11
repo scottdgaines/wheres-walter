@@ -47,7 +47,7 @@ const Form = () => {
             </select>
         </div>
     
-    const dynamicVerbiage = noticeType === 'Lost' ? '6. When did you notice the animal was missing' : '6. When did you find the animal'
+    const dynamicVerbiage = noticeType === 'Lost' ? '7. When did you notice the animal was missing' : '7. When did you find the animal'
 
     return (
         <div className='form-container'>
