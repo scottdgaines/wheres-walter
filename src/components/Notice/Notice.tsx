@@ -7,7 +7,6 @@ type NoticeProps = {
   notice: NoticeDetails
 }
 
-
 const Notice: React.FC<NoticeProps> = ({ notice }) => {
   const [image, setImage] =  useState<string | null>();
 
