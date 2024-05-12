@@ -7,22 +7,22 @@ import { Link } from 'react-router-dom'
 type BrowseProps = {
   lostNotices?: Notice[];
   foundNotices?: Notice[];
-  toggleSelected?: (arg: string) => void;
   selected?: boolean;
+  toggleStyling?: MouseEventHandler<HTMLParagraphElement>;
 }
 
 const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices, selected }) => {
   const notices = lostNotices ? lostNotices : foundNotices
-  const title = lostNotices ? 'Lost' : 'Found'
   
   const cards = notices && notices.map(notice => {
     return <Card id={notice.id} notice={notice} />
   })
 
+  const dynamicStyling = selected ? 'selected' : 'unselected'
+
   return (
     <div>
-      <p className='title'>{title}</p>
-      <div className='cards-container'>
+      <div className={`cards-container ${dynamicStyling}`} >
         {cards}
       </div>
     </div>

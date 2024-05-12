@@ -3,3 +3,29 @@
     flex-direction: row;
     height: 100vh;
 }
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 50px;
+    background: darkgray;
+    border: 1px solid black;
+    border-bottom: none;
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin: 10px 2px 10px 2px;
+    width: 50vw;
+    text-align: center;
+}
+
+.selected {
+    border: 2px solid red;
+}
+
+.unselected {
+    border: 2px solid blue;
+}
