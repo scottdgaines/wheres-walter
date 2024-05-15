@@ -28,21 +28,21 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
         setFoundNotices([...newFoundNotices])
       }
 
-    const titleStyling = selected == 'Found' && selected
+    const lostSelected = selected == 'Lost' ? 'selected' : 'unselected'
+    const foundSelected = selected == 'Found' ? 'selected' : 'unselected'
       
     useEffect(() => {
       sortNotices()
       setSelected('Lost')
-      console.log(selected)
     }, [notices])  
 
     const browseComponent = selected == 'Lost' ?   <Browse lostNotices={lostNotices} /> : <Browse foundNotices={foundNotices} />
-      
+      console.log(lostSelected, foundSelected)
   return (
     <div>
       <div className='title-container'>
-        <p className={`title ${titleStyling}`} onClick={() => setSelected('Lost')}>Lost</p>
-        <p className='title' onClick={() => setSelected('Found')}>Found</p>
+        <p className={`title ${lostSelected}`} onClick={() => setSelected('Lost')}>Lost</p>
+        <p className={`title ${foundSelected}`} onClick={() => setSelected('Found')}>Found</p>
       </div>
       <div className='browse-container'>
       {browseComponent}
