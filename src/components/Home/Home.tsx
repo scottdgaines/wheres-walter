@@ -8,13 +8,13 @@ type HomeProps = {
 }
 
 const Home: React.FC<HomeProps> = ({ notices }) => {
-    const [lostNotices, setLostNotices] = useState<Notice[]>([])
-    const [foundNotices, setFoundNotices] = useState<Notice[]>([])
+    const [lostNotices, setLostNotices] = useState<NoticeDetails[]>([])
+    const [foundNotices, setFoundNotices] = useState<NoticeDetails[]>([])
     const [selected, setSelected] = useState<string>('Lost')
 
     const sortNotices = () => {
-        const newFoundNotices: Notice[] = []
-        const newLostNotices: Notice[] = []
+        const newFoundNotices: NoticeDetails[] = []
+        const newLostNotices: NoticeDetails[] = []
 
         notices.forEach(notice => {
           if (notice.noticeType === "Lost") {
