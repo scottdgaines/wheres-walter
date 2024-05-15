@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Browse from '../Browse/Browse'
-import { Notice } from '../../interfaces'
+import { NoticeDetails } from '../../interfaces'
 import './Home.css'
 
 type HomeProps = {
-    notices: Notice[];
+    notices: NoticeDetails[];
 }
 
 const Home: React.FC<HomeProps> = ({ notices }) => {
@@ -37,7 +37,7 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
     }, [notices])  
 
     const browseComponent = selected == 'Lost' ?   <Browse lostNotices={lostNotices} /> : <Browse foundNotices={foundNotices} />
-      console.log(lostSelected, foundSelected)
+
   return (
     <div>
       <div className='title-container'>
