@@ -10,9 +10,7 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = ({ notices }) => {
     const [lostNotices, setLostNotices] = useState<Notice[]>([])
     const [foundNotices, setFoundNotices] = useState<Notice[]>([])
-    const [lostSelected, setLostSelected] = useState<boolean>(true)
-    const [foundSelected, setFoundSelected] = useState<boolean>(false)
-    let styling
+    const [selected, setSelected] = useState<string>('Lost')
 
     const sortNotices = () => {
         const newFoundNotices: Notice[] = []
@@ -30,30 +28,24 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
         setFoundNotices([...newFoundNotices])
       }
 
-    const toggleSelected = (category: string) => {
-      if (category == 'Lost' && !lostSelected) {
-        setLostSelected(true)
-        setFoundSelected(false)
-      } else if (category == 'Found' && lostSelected) {
-        setLostSelected(false)
-        setFoundSelected(true)
-      }
-    }
+    const titleStyling = selected == 'Found' && selected
       
     useEffect(() => {
       sortNotices()
+      setSelected('Lost')
+      console.log(selected)
     }, [notices])  
 
+    const browseComponent = selected == 'Lost' ?   <Browse lostNotices={lostNotices} /> : <Browse foundNotices={foundNotices} />
       
   return (
     <div>
       <div className='title-container'>
-        <p className={`title ${styling}`} onClick={() => toggleSelected('Lost')}>Lost</p>
-        <p className={`title ${styling}`} onClick={() => toggleSelected('Found')}>Found</p>
+        <p className={`title ${titleStyling}`} onClick={() => setSelected('Lost')}>Lost</p>
+        <p className='title' onClick={() => setSelected('Found')}>Found</p>
       </div>
       <div className='browse-container'>
-          <Browse lostNotices={lostNotices} selected={lostSelected} />
-          <Browse foundNotices={foundNotices} selected={foundSelected} />
+      {browseComponent}
       </div>
 
     </div>
