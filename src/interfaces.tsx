@@ -1,4 +1,4 @@
-export interface NoticeDetails {
+export interface NoticeInterface {
     id: number,
     noticeType: string,
     petName: string,
