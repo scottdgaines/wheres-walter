@@ -1,19 +1,15 @@
 import React from 'react'
-import { Notice } from '../../interfaces'
+import { NoticeDetails } from '../../interfaces'
 import Card from '../Card/Card'
 import './Browse.css'
-import { Link } from 'react-router-dom'
 
 type BrowseProps = {
-  lostNotices?: Notice[];
-  foundNotices?: Notice[];
-  toggleSelected?: (arg: string) => void;
-  selected?: boolean;
+  lostNotices?: NoticeDetails[];
+  foundNotices?: NoticeDetails[];
 }
 
-const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices, selected }) => {
+const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices }) => {
   const notices = lostNotices ? lostNotices : foundNotices
-  const title = lostNotices ? 'Lost' : 'Found'
   
   const cards = notices && notices.map(notice => {
     return <Card id={notice.id} notice={notice} />
@@ -21,8 +17,7 @@ const Browse: React.FC<BrowseProps> = ({ lostNotices, foundNotices, selected }) 
 
   return (
     <div>
-      <p className='title'>{title}</p>
-      <div className='cards-container'>
+      <div className='cards-container' >
         {cards}
       </div>
     </div>

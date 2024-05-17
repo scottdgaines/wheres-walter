@@ -3,6 +3,30 @@
     color: inherit;
 }
 
+.card-tag {
+    background-color: gray;
+    size: 10px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 205px;
+    margin-bottom: 0px;
+    margin-left: 9px;
+    padding: 4px 4px 0px 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin: auto;
+    box-shadow: 5px 0px lightgrey;
+}
+
+.lost {
+    background-color: red;
+}
+
+.found {
+    background-color: rgb(1, 170, 1);
+}
+
 .card {
     flex-direction: column;
     display: flex;
@@ -12,15 +36,18 @@
     border: 1px solid darkgray;
     padding: 10px;
     border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     box-shadow: 5px 5px lightgrey;
     margin: 8px;
+    margin-top: 0px;
 }
 
-.card:hover {
+.card-hover-container:hover {
     transform: scale(1.05);
     transition: 0.5s;
     transition-timing-function: ease-in-out;
-    }
+}
 
 .thumbnail {
     min-width: 175px;
