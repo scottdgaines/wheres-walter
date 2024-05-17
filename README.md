@@ -17,8 +17,13 @@ lost pets being reunited with their families.
 - I should be able to toggle through multiple images on the detailed-notice view, if they exist
 - I should be able to create and submit a notice, which should immediately be displayed on the home screen
 
+  **Iteration 2.0**
+  - As a user, I should be able to create an account, with customizable personal information
+  - As a user, I should see be able to visit my account dashboard that details followed notices, my own notices, and relevant / new / updated notices in my area
+  - As a user, I should be able to follow other user's notices, and update or delete my own notices
+  - As a user, I should be able to view shelter information based on my user profile / current location
+  - As a user, I should be able to leave comments that link to my profile on other notices
+
 **Future Iterations**
-- As a user, I should be able to create an account and customize my profile
-- I should be able to message with fellow users
-- I should be able to comment on notices
-- I should be able to update or remove notices that I have submitted 
+- As a user, I should be able to message with other users
+- As a user, I should be able to share notices via text, social media, or email
