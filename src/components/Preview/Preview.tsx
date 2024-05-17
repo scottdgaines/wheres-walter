@@ -15,7 +15,6 @@ const Preview = () => {
 
     useEffect(() => {
         setNotice(previewData[0])
-        console.log('prev notice', notice)
     }, [])
 
     const handleClick = () => {
