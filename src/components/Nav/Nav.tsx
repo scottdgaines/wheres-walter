@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './Nav.css'
-import { Link, useNavigate } from 'react-router-dom'
-import homeIcon from '../../assets/home-icon.png';
+import { useNavigate } from 'react-router-dom'
 import prevIcon from '../../assets/prev-icon.png'
 import nextIcon from '../../assets/next-icon.png'
 import { NoticeDetails } from '../../interfaces'
@@ -48,9 +47,6 @@ const Nav: React.FC<NavProps> = ({ noticeIdNum, navigationArray }) => {
         <div>
         <div className='navigation-container'>
                 <img src={prevIcon} className={`${prevButtonStyling}`} onClick={() => navigateNotices('prev')} />
-                <Link to='/'>
-                    <img src={homeIcon} className='home-button' />
-                </Link>
                 <img src={nextIcon} className={`${nextButtonStyling}`} onClick={() => navigateNotices('next')} />
             </div>
         </div>

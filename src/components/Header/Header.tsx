@@ -8,7 +8,7 @@ import homeIcon from '../../assets/home-icon.png'
 const Nav = () => {
   const location = useLocation()
 
-  const dynamicIcon = location.pathname == '/' ? formIcon : homeIcon
+  const dynamicIcon = location.pathname === '/' ? formIcon : homeIcon
   const dynamicPath = location.pathname == '/' ? '/form' : '/'
   const toolTip = location.pathname == '/' ? 'Create New Notice' : 'Return Home'
 
