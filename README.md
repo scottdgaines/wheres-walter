@@ -22,7 +22,7 @@ lost pets being reunited with their families.
 - As a user, I should see be able to visit my account dashboard that details followed notices, my own notices, and relevant / new / updated notices in my area
 - As a user, I should be able to follow other user's notices, and update or delete my own notices
 - As a user, I should be able to view shelter information based on my user profile / current location
-  - As a user, I should be able to leave comments that link to my profile on other notices
+- As a user, I should be able to leave comments that link to my profile on other notices
 
 **Future Iterations**
 - As a user, I should be able to message with other users
