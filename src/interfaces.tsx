@@ -12,5 +12,5 @@ export interface NoticeInterface {
     petNotes: string,
     contactNum: string,
     contactEmail: string,
-    reward: boolean
+    reward: boolean | null
 }
