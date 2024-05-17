@@ -5,7 +5,6 @@ import Home from '../Home/Home'
 import View from '../View/View'
 import Form from '../Form/Form'
 import Preview from '../Preview/Preview'
-import { preview } from '../../previewData'
 import { data } from '../../data' //essentially my utility file where a fetch would have happened
 import { NoticeDetails } from '../../interfaces'
 import './App.css'
