@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from 'react'
-import Browse from '../Browse/Browse'
-import { NoticeDetails } from '../../interfaces'
-import './Home.css'
+import React, { useState, useEffect } from 'react';
+import Browse from '../Browse/Browse';
+import { NoticeInterface } from '../../interfaces';
+import './Home.css';
 
 type HomeProps = {
-    notices: NoticeDetails[];
-}
+    notices: NoticeInterface[];
+};
 
 const Home: React.FC<HomeProps> = ({ notices }) => {
-    const [lostNotices, setLostNotices] = useState<NoticeDetails[]>([])
-    const [foundNotices, setFoundNotices] = useState<NoticeDetails[]>([])
-    const [selected, setSelected] = useState<string>('Lost')
+  const [lostNotices, setLostNotices] = useState<NoticeInterface[]>([]);
+  const [foundNotices, setFoundNotices] = useState<NoticeInterface[]>([]);
+  const [selected, setSelected] = useState<string>('Lost');
 
-    const sortNotices = () => {
-        const newFoundNotices: NoticeDetails[] = []
-        const newLostNotices: NoticeDetails[] = []
+  const sortNotices = () => {
+      const newFoundNotices: NoticeInterface[] = [];
+      const newLostNotices: NoticeInterface[] = [];
 
-        notices.forEach(notice => {
-          if (notice.noticeType === "Lost") {
-            newLostNotices.push(notice)
-          } else {
-            newFoundNotices.push(notice)
-          }
-        })
+      notices.forEach(notice => {
+        if (notice.noticeType === "Lost") {
+          newLostNotices.push(notice)
+        } else {
+          newFoundNotices.push(notice)
+        };
+      });
 
-        setLostNotices([...newLostNotices])
-        setFoundNotices([...newFoundNotices])
-      }
+      setLostNotices([...newLostNotices]);
+      setFoundNotices([...newFoundNotices]);
+    };
 
-    const lostSelected = selected == 'Lost' ? 'selected' : 'unselected'
-    const foundSelected = selected == 'Found' ? 'selected' : 'unselected'
-      
-    useEffect(() => {
-      sortNotices()
-      setSelected('Lost')
-    }, [notices])  
+  const lostSelected = selected == 'Lost' ? 'selected' : 'unselected';
+  const foundSelected = selected == 'Found' ? 'selected' : 'unselected';
+    
+  useEffect(() => {
+    sortNotices();
+    setSelected('Lost');
+  }, [notices]);
 
-    const browseComponent = selected == 'Lost' ?   <Browse lostNotices={lostNotices} /> : <Browse foundNotices={foundNotices} />
+  const browseComponent = selected == 'Lost' ?   <Browse lostNotices={lostNotices} /> : <Browse foundNotices={foundNotices} />;
 
   return (
     <div>
@@ -50,6 +50,6 @@ const Home: React.FC<HomeProps> = ({ notices }) => {
 
     </div>
   )
-}
+};
 
 export default Home
