@@ -1,43 +1,43 @@
-import React, { useState, createRef } from 'react'
-import { useNavigate } from 'react-router-dom'
-import NoticeClass from '../../NoticeClass'
-import { previewData } from '../../previewData'
-import './Form.css'
+import React, { useState, createRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import NoticeClass from '../../NoticeClass';
+import { previewData } from '../../previewData';
+import './Form.css';
 
 const Form = () => {
-    const [noticeType, setNoticeType] = useState<string>('Found')
-    const [reward, setReward] = useState<boolean | null>(null)
-    const [petName, setPetName] = useState<string>('')
-    const [images, setImages] = useState<string[] | []>([])
-    const [petSpecie, setPetSpecie] = useState<string>('Dog')
-    const [petBreed, setPetBreed] = useState<string>('')
-    const [petSex, setPetSex] = useState<string>('')
-    const [petDescription, setPetDescription] = useState<string>('')
-    const [dateLost, setDateLost] = useState<string>('')
-    const [chipNum, setChipNum] = useState<string>('')
-    const [petNotes, setPetNotes] = useState<string>('')
-    const [contactNum, setContactNum] = useState<string>('')
-    const [contactEmail, setContactEmail] = useState<string>('')
-    const fileInputRef = createRef<HTMLInputElement>()
-    const navigate = useNavigate()
+    const [noticeType, setNoticeType] = useState<string>('Found');
+    const [reward, setReward] = useState<boolean | null>(null);
+    const [petName, setPetName] = useState<string>('');
+    const [images, setImages] = useState<string[] | []>([]);
+    const [petSpecie, setPetSpecie] = useState<string>('Dog');
+    const [petBreed, setPetBreed] = useState<string>('');
+    const [petSex, setPetSex] = useState<string>('');
+    const [petDescription, setPetDescription] = useState<string>('');
+    const [dateLost, setDateLost] = useState<string>('');
+    const [chipNum, setChipNum] = useState<string>('');
+    const [petNotes, setPetNotes] = useState<string>('');
+    const [contactNum, setContactNum] = useState<string>('');
+    const [contactEmail, setContactEmail] = useState<string>('');
+    const fileInputRef = createRef<HTMLInputElement>();
+    const navigate = useNavigate();
 
     const addImages = () => {
         if (fileInputRef.current && fileInputRef.current.files && fileInputRef.current.files.length) {
             setImages([fileInputRef.current.files[0].name])
-        }
-    }
+        };
+    };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        addImages()
-        const notice = new NoticeClass(noticeType, reward, petName, images, petSpecie, petBreed, petSex, petDescription, chipNum, petNotes, contactNum, contactEmail)
+        event.preventDefault();
+        addImages();
+        const notice = new NoticeClass(noticeType, reward, petName, images, petSpecie, petBreed, petSex, petDescription, chipNum, petNotes, contactNum, contactEmail);
         if (notice) {
-            console.log('from form', notice)
-            previewData.push(notice) //updating Global State
-            console.log(previewData)
-            navigate(`/preview/${notice.id}`)
-        }
-    }
+            console.log('from form', notice);
+            previewData.push(notice); //updating Global State
+            console.log(previewData);
+            navigate(`/preview/${notice.id}`);
+        };
+    };
 
     const rewardInput = noticeType === 'Lost' &&  
         <div className='input-container'>
@@ -46,9 +46,9 @@ const Form = () => {
                 <option value='true'>Yes</option>
                 <option value='false'>No</option>
             </select>
-        </div>
+        </div>;
     
-    const dynamicVerbiage = noticeType === 'Lost' ? '7. When did you notice the animal was missing' : '7. When did you find the animal'
+    const dynamicVerbiage = noticeType === 'Lost' ? '7. When did you notice the animal was missing' : '7. When did you find the animal';
 
     return (
         <div className='form-container'>
@@ -167,6 +167,6 @@ const Form = () => {
             </form>
         </div>
     )
-}
+};
 
 export default Form

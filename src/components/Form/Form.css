@@ -1,18 +1,14 @@
 .form-container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    background-color: white;
     border: 2px solid darkgray;
     border-radius: 10px;
-    width: fit-content;
+    display: flex;
+    flex-direction: column;
     margin: auto;
     margin-top: 25px;
     padding: 25px;
-    background-color: white;
-}
-
-label {
-  font-weight: bold;
+    width: fit-content;
 }
 
 .input-container {
@@ -22,39 +18,43 @@ label {
   margin: 5px;
 }
 
+label {
+  font-weight: bold;
+}
+
 input,
 textarea,
 select {
-  width: 150px;
-  margin-top: 4px;
   margin-left: 10px;
+  margin-top: 4px;
+  width: 150px;
 }
 
 .long {
-  width: 350px;
   height: 100px;
+  width: 350px;
+}
+
+.image {
+  width: 200px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
 }
 
 button {
   border-radius: 8px;
-  height: 40px;
-  font-size: 30px;
   cursor: pointer;
+  font-size: 30px;
+  height: 40px;
   background-color: lightgray;
 }
 
 button:hover {
   background-color: white;
   color: black
-}
-
-.button-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.image {
-  width: 200px;
 }
