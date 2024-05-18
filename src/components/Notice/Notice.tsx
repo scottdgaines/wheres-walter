@@ -4,7 +4,7 @@ import './Notice.css';
 import errorImage from '../../assets/error-image.jpeg';
 
 type NoticeProps = {
-  notice: NoticeInterface;
+  notice?: NoticeInterface;
 };
 
 const Notice: React.FC<NoticeProps> = ({ notice }) => {
