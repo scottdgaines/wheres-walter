@@ -1,10 +1,10 @@
 .nav-bar {
-    height: 120px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     background-color: white;
     border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    justify-content: space-between;
 }
 
 .logo-container {
@@ -26,36 +26,37 @@
     height: 100%;
 }
 
+
+.tool-tip {
+    display: inline-block;
+    height: 0px;
+    margin-right: 20px;
+    position: relative;
+    width: 40px;
+}
+
+.tool-tip-text {
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+    padding: 4px;
+    position: absolute;
+    opacity: 0;
+    right: 45px;
+    transition: opacity .25s;
+    text-align: center;
+    top: 28px;
+    visibility: hidden;
+    width: 150px;
+}
+
+.tool-tip:hover .tool-tip-text {
+    opacity: 1;
+    visibility: visible;
+}
+
 .icon {
     width: 40px;
     margin-top: 35px;
     object-fit: cover;
-}
-
-.tool-tip {
-    width: 40px;
-    height: 0px;
-    margin-right: 20px;
-    position: relative;
-    display: inline-block;
-}
-
-.tool-tip .tool-tip-text {
-    visibility: hidden;
-    position: absolute;
-    background-color: gray;
-    color: white;
-    border-radius: 5px;
-    padding: 4px;
-    width: 150px;
-    top: 28px;
-    right: 45px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity .25s;
-}
-
-.tool-tip:hover .tool-tip-text {
-    visibility: visible;
-    opacity: 1;
 }
