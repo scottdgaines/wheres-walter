@@ -1,17 +1,36 @@
 .view-container {
-    display: flex;
-    border: 2px solid darkgray;
     background-color: white;
-    flex-direction: column;
-    justify-content: space-between;
+    border: 2px solid darkgray;
     border-radius: 10px;
-    width: 90vw;
+    box-shadow: 5px 5px lightgrey;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: space-between;
     margin: auto;
     margin-top: 0px;
     margin-bottom: 20px;
-    height: fit-content;
-    box-shadow: 5px 5px lightgrey;
     padding: 10px 10px 75px;
+    width: 90vw;
+}
+
+.notice-banner {
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    color: white;
+    font-size: 4vw;
+    margin-top: 0px;
+    text-align: center;
+    width: 100%;
+} 
+
+.lost {
+    background-color: red;
+}
+
+.found {
+    background-color: rgb(1, 170, 1);
 }
 
 .all-content-container {
@@ -26,26 +45,26 @@
 }
 
 .main-image {
-    width: 40vw;
     float: top;
     margin: auto;
     object-fit: contain;
     padding: 2px;
+    width: 40vw;
 }
 
 .thumbnail-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .thumbnail {
-    margin: 5px;
     cursor: pointer;
-    width: 10vw;
     float: top;
+    margin: 5px;
     object-fit: contain;
+    width: 10vw;
 }
 
 .information-container {
@@ -54,31 +73,15 @@
 }
 
 .name {
-    text-align: center;
-    margin: 0;
-    width: 100%;
     font-size: 5vw;
+    margin: 0;
+    text-align: center;
+    width: 100%;
 }
 
 .breed-tag {
-    text-align: center;
     font-style: italic;
     margin-top: 0px;
-}
-
-.notice-banner {
-    width: max-content;
-    color: white;
     text-align: center;
-    font-size: 4vw;
-    width: 100%;
-    margin-top: 0px;
-} 
-
-.lost {
-    background-color: red;
 }
 
-.found {
-    background-color: rgb(1, 170, 1);
-}
