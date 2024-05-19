@@ -10,9 +10,9 @@ type ViewProps = {
 };
 
 const View: React.FC<ViewProps> = ({ notices }) => {
-    const [notice, setNotice] = useState<NoticeInterface | null>(null);
+    const [notice, setNotice] = useState<NoticeInterface>();
     const { id: noticeId } = useParams<{ id: string }>();
-    const noticeIdNum = noticeId && parseInt(noticeId || '', 0);
+    const noticeIdNum = noticeId ? parseInt(noticeId || '', 0) : null;
     const [navigationArray, setNavigationArray] = useState<NoticeInterface[]>([]);
 
     const createNavigationArray = () => {
@@ -33,7 +33,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
         if (targetedNotice) {
             setNotice(targetedNotice);
             createNavigationArray();
-        };
+        }
         
     }, [noticeId, notices, notice]);
 

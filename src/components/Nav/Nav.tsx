@@ -6,8 +6,7 @@ import prevIcon from '../../assets/prev-icon.png';
 import nextIcon from '../../assets/next-icon.png';
 
 type NavProps = {
-    notices: NoticeInterface[];
-    noticeIdNum: number | ', 0';
+    noticeIdNum: number | null;
     navigationArray: NoticeInterface[];
 };
 
