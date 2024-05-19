@@ -1,38 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import './View.css';
-import Notice from '../Notice/Notice'
-import Nav from '../Nav/Nav'
 import { useParams } from 'react-router-dom';
-import { NoticeDetails } from '../../interfaces';
+import { NoticeInterface } from '../../interfaces';
+import './View.css';
+import Notice from '../Notice/Notice';
+import Nav from '../Nav/Nav';
 
 type ViewProps = {
-    notices: NoticeDetails[]
+    notices: NoticeInterface[];
 };
 
 const View: React.FC<ViewProps> = ({ notices }) => {
-    const [notice, setNotice] = useState<NoticeDetails | null>(null);
+    const [notice, setNotice] = useState<NoticeInterface>();
     const { id: noticeId } = useParams<{ id: string }>();
-    const noticeIdNum = noticeId && parseInt(noticeId || '', 0);
-    const [navigationArray, setNavigationArray] = useState<NoticeDetails[]>([]);
+    const noticeIdNum = noticeId ? parseInt(noticeId || '', 0) : null;
+    const [navigationArray, setNavigationArray] = useState<NoticeInterface[]>([]);
 
     const createNavigationArray = () => {
         const sortedNotices = notice && notices.filter(index => {
             return index.noticeType === notice.noticeType
-        })
+        });
         
         if (sortedNotices) {
-            setNavigationArray(sortedNotices)
-        }
+            setNavigationArray(sortedNotices);
+        };
     };
 
     useEffect(() => {
         const targetedNotice = notices.find(notice => {
-            return notice.id === noticeIdNum
-        })
+            return notice.id === noticeIdNum;
+        });
 
         if (targetedNotice) {
             setNotice(targetedNotice);
-            createNavigationArray()
+            createNavigationArray();
         }
         
     }, [noticeId, notices, notice]);

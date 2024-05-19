@@ -1,16 +1,15 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import './Header.css'
-import logo from '../../assets/logo.png'
-import formIcon from '../../assets/form-logo.png'
-import homeIcon from '../../assets/home-icon.png'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './Header.css';
+import logo from '../../assets/logo.png';
+import formIcon from '../../assets/form-logo.png';
+import homeIcon from '../../assets/home-icon.png';
 
 const Nav = () => {
-  const location = useLocation()
-
-  const dynamicIcon = location.pathname == '/' ? formIcon : homeIcon
-  const dynamicPath = location.pathname == '/' ? '/form' : '/'
-  const toolTip = location.pathname == '/' ? 'Create New Notice' : 'Return Home'
+  const location = useLocation();
+  const dynamicIcon = location.pathname === '/' ? formIcon : homeIcon;
+  const dynamicPath = location.pathname == '/' ? '/form' : '/';
+  const toolTip = location.pathname == '/' ? 'Create New Notice' : 'Return Home';
 
   return (
     <div className='nav-bar'>
@@ -29,6 +28,6 @@ const Nav = () => {
         </div>
     </div>
   )
-}
+};
 
 export default Nav

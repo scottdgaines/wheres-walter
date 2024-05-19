@@ -1,4 +1,4 @@
-export interface NoticeDetails {
+export interface NoticeInterface {
     id: number,
     noticeType: string,
     petName: string,
@@ -12,5 +12,5 @@ export interface NoticeDetails {
     petNotes: string,
     contactNum: string,
     contactEmail: string,
-    reward: boolean
+    reward: boolean | null
 }

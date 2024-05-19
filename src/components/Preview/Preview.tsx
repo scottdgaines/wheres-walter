@@ -1,31 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import '../View/View.css'
-import Notice from '../Notice/Notice'
-import { previewData } from '../../previewData'
-import { data } from '../../data'
-import { useNavigate } from 'react-router-dom'
-import { NoticeDetails } from '../../interfaces'
-import '../Form/Form.css'
-import prevButton from '../../assets/prev-icon.png'
-import './Preview.css'
+import React, { useEffect, useState } from 'react';
+import { NoticeInterface } from '../../interfaces';
+import { useNavigate } from 'react-router-dom';
+import '../View/View.css';
+import './Preview.css';
+import '../Form/Form.css';
+import Notice from '../Notice/Notice';
+import { previewData } from '../../previewData';
+import { data } from '../../data';
+import prevButton from '../../assets/prev-icon.png';
 
 const Preview = () => {
-    const [notice, setNotice] = useState<NoticeDetails>()
-    const navigate = useNavigate()
+    const [notice, setNotice] = useState<NoticeInterface>();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        setNotice(previewData[0])
-    }, [])
+        setNotice(previewData[0]);
+    }, []);
 
     const handleClick = () => {
-        navigate(-1)
-    }
+        navigate(-1);
+        previewData.pop();
+    };
 
     const handleSubmit = () => {
-        previewData.pop()
-        data.push(notice)
-        navigate('/')
-    }
+        if (notice) {
+            previewData.pop();
+            data.push(notice);
+            navigate('/');
+        };
+    };
     
     return (
         <div>
@@ -36,6 +39,6 @@ const Preview = () => {
             </div>
         </div>
     )
-}
+};
 
 export default Preview
