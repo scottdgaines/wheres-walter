@@ -17,7 +17,7 @@ lost pets being reunited with their families.
 - I should be able to toggle through multiple images on the detailed-notice view, if they exist
 - I should be able to create and submit a notice, which should immediately be displayed on the home screen
 
-  **Iteration 1.2**
+**Iteration 1.2**
 - As a user, I shouldn't be able to subnit the New Notice form until all fields filled in
 - As a user, I should be able to tab through the entire application, or use a screen reader without issue
 - As a user, I should see my submitted Notices as part of the data set after page refresh
