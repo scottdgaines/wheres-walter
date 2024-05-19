@@ -18,8 +18,11 @@ lost pets being reunited with their families.
 - I should be able to create and submit a notice, which should immediately be displayed on the home screen
 
 **Iteration 1.2**
-- As a user, I shouldn't be able to subnit the New Notice form until all fields filled in
+- Incorperate testing suite, including unit and intergration
 - As a user, I should be able to tab through the entire application, or use a screen reader without issue
+
+**Iteration 1.3**
+- As a user, I shouldn't be able to subnit the New Notice form until all fields filled in
 - As a user, I should see my submitted Notices as part of the data set after page refresh
  </br> *Integrate use of local storage, until backend is built out*
 
