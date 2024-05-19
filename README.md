@@ -17,6 +17,10 @@ lost pets being reunited with their families.
 - I should be able to toggle through multiple images on the detailed-notice view, if they exist
 - I should be able to create and submit a notice, which should immediately be displayed on the home screen
 
+  **Iteration 1.2**
+- As a user, I should see my submitted Notices as part of the data set
+  *Integrate use of local storage, until I have a backend up and running*
+
 **Iteration 2.0**
 - As a user, I should be able to create an account, with customizable personal information
 - As a user, I should see be able to visit my account dashboard that details followed notices, my own notices, and relevant / new / updated notices in my area
