@@ -27,14 +27,12 @@ const Form = () => {
         };
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         addImages();
         const notice = new NoticeClass(noticeType, reward, petName, images, petSpecie, petBreed, petSex, petDescription, chipNum, petNotes, contactNum, contactEmail);
         if (notice) {
-            console.log('from form', notice);
             previewData.push(notice); //updating Global State
-            console.log(previewData);
             navigate(`/preview/${notice.id}`);
         };
     };
@@ -100,7 +98,6 @@ const Form = () => {
                 <div className='input-container'>
                     <label>6. Please describe the animal's appearance:</label>
                     <textarea
-                        type='text' 
                         className='text long'
                         value={petDescription}
                         onChange={(event) => setPetDescription(event.target.value)}
@@ -135,7 +132,6 @@ const Form = () => {
                 <div className='input-container'>
                     <label>Please list any other relevent information (temperment, location last seen, etc)</label>
                     <textarea
-                        type='text'
                         className='text long'
                         value={petNotes}
                         onChange={(event) => setPetNotes(event.target.value)}
