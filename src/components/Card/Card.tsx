@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({ id, notice }) => {
   const tagColor = notice.noticeType === 'Lost' ? 'lost' : 'found';
 
   return (
-    <Link to={`/${id}`} className='link'>
+    <Link to={`/${id}`} className='link' aria-label={`View the notice for ${notice.petName}`}>
       <div className='card-hover-container'>
         <div className={`card-tag ${tagColor}`}>{notice.noticeType}</div>
         <div className='card'>
