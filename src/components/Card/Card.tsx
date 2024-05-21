@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ id, notice }) => {
         <div className={`card-tag ${tagColor}`}>{notice.noticeType}</div>
         <div className='card'>
           <h3>{notice.petName}</h3>
-          <img src={notice.images[0]} className='thumbnail' />
+          <img src={notice.images[0]} className='thumbnail' alt={`${notice.petDescription}`} />
         </div>
       </div>
     </Link>
