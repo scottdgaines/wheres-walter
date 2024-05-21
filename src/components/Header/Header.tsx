@@ -18,12 +18,12 @@ const Nav = () => {
             <p className='nav-title'>Where's Walter</p>
             <p className='tagline'>Bringing Furry Friends Home</p>
           </div>
-          <img src={logo} className='logo' />
+          <img src={logo} className='logo' alt='The silhouette of a dog sitting and facing left.'/>
         </div>
         <div className='tool-tip'>
         <p className='tool-tip-text'>{toolTip}</p>
           <Link to={dynamicPath} >
-              <img src={dynamicIcon} className='icon'/>
+              <img src={dynamicIcon} className='icon' alt={toolTip} />
           </Link>
         </div>
     </div>
