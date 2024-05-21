@@ -10,6 +10,7 @@ const Nav = () => {
   const dynamicIcon = location.pathname === '/' ? formIcon : homeIcon;
   const dynamicPath = location.pathname == '/' ? '/form' : '/';
   const toolTip = location.pathname == '/' ? 'Create New Notice' : 'Return Home';
+  const altTag = dynamicIcon === formIcon ? 'New Notice Icon' : 'Silhouette of a Doghouse';
 
   return (
     <div className='nav-bar'>
@@ -22,8 +23,8 @@ const Nav = () => {
         </div>
         <div className='tool-tip'>
         <p className='tool-tip-text'>{toolTip}</p>
-          <Link to={dynamicPath} >
-              <img src={dynamicIcon} className='icon' alt={toolTip} />
+          <Link to={dynamicPath} aria-label={toolTip} >
+              <img src={dynamicIcon} className='icon' alt={altTag} />
           </Link>
         </div>
     </div>
