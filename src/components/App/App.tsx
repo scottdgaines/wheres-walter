@@ -7,8 +7,6 @@ import Form from '../Form/Form';
 import Preview from '../Preview/Preview';
 import { data } from '../../data'; //essentially my utility file where a fetch would have happened
 import { NoticeInterface } from '../../interfaces';
-import './App.css';
-
 
 const App = () => {
   const [notices, setNotices] = useState<NoticeInterface[]>([]);
