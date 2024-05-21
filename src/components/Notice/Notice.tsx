@@ -63,7 +63,7 @@ const Notice: React.FC<NoticeProps> = ({ notice }) => {
       <p className={noticeBanner}>{noticeType}</p>
       <div className='all-content-container'>
           <div className='image-container'>
-              <img src={imageSRC} className='main-image' alt={`${notice.petDescription}`} /> 
+              <img src={imageSRC} className='main-image' alt={description} /> 
               <div className='thumbnail-container'>
                   {additionalImages}
               </div>
