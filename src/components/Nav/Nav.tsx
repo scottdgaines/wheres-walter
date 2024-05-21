@@ -45,8 +45,8 @@ const Nav: React.FC<NavProps> = ({ noticeIdNum, navigationArray }) => {
     return (
         <div>
         <div className='navigation-container'>
-                <img src={prevIcon} className={`${prevButtonStyling}`} onClick={() => navigateNotices('prev')} />
-                <img src={nextIcon} className={`${nextButtonStyling}`} onClick={() => navigateNotices('next')} />
+                <img src={prevIcon} className={`${prevButtonStyling}`} alt='Previous Notice' onClick={() => navigateNotices('prev')} />
+                <img src={nextIcon} className={`${nextButtonStyling}`}  alt='Next Notice' onClick={() => navigateNotices('next')} />
             </div>
         </div>
     )
