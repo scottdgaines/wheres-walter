@@ -1,5 +1,7 @@
 ## Where's Walter
 
+[Wireframe](https://miro.com/app/board/uXjVKVNrSiE=/?share_link_id=667821852486)
+
 **Overview**
 </br>Where's Walter is a web-based application written in React.js and TypeScript, and using React-Router-Dom. It is a personal passion project,
 inspired by the need for a central platform where pet-owners can post lost and found notices, allowing for more effective communication and resulting in more
