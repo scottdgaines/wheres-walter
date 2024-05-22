@@ -1,6 +1,6 @@
 ## Where's Walter
 
-[Wireframe](https://miro.com/app/board/uXjVKVNrSiE=/?share_link_id=667821852486)
+[Wireframe](https://miro.com/app/board/uXjVKVNrSiE=/?share_link_id=667821852486)| [Deployed Site](https://wheres-walter-sepia.vercel.app/)
 
 **Overview**
 </br>Where's Walter is a web-based application written in React.js and TypeScript, and using React-Router-Dom. It is a personal passion project,
