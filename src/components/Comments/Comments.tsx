@@ -18,13 +18,18 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
     })
 
     return (
-        <div>
+        <div className='view-container'>
             {comments}
-            <label>Leave a comment 
-                <input
-                    type='text' />
-            </label>
-            <button>Leave Comment</button>
+            <div className='new-comment-container'>
+                <label>Leave a comment</label>
+                <div className='new-comment'>
+                    <input
+                        type='text'
+                        className='comment-input' 
+                    />
+                    <button className='comment-button'>Leave Comment</button>
+                </div>
+            </div>
         </div>
     )
 };

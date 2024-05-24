@@ -10,9 +10,9 @@ type CommentProps = {
 
 const Comment: React.FC<CommentProps> = ({ key, id, username, comment }) => {
   return (
-    <div>
-      <p>{username}</p>
-      <p>{comment}</p>
+    <div className='comment'>
+      <p className='comment-username'>{username}</p>
+      <p className='comment-comment'>"{comment}"</p>
     </div>
   )
 };

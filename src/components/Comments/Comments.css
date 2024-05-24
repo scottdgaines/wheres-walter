@@ -1,0 +1,23 @@
+.new-comment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-comment {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.comment-input {
+    height: 30px;
+    width: 60vw;
+}
+
+.comment-button {
+    font-size: 15px;
+    height: 30px;
+    margin: 10px;
+    width: fit-content;
+}
