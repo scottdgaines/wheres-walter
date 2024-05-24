@@ -14,7 +14,7 @@
     margin: 10px 10px 0px 6px;
     padding: 6px;
     height: 20px;
-    width: 60px;
+    width: fit-content;
 }
 
 .comment-comment {
