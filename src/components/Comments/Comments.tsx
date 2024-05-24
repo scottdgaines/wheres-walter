@@ -35,8 +35,8 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
     };
 
     return (
-        <div className='view-container'>
-            <div className='comment-container'>
+        <div className='view-container comment-container'>
+            <div className='prev-comment-container'>
                 {comments}
             </div>
             <div className='new-comment-container'>
