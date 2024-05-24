@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Comments.css';
 import { NoticeInterface } from '../../interfaces';
 import Comment from '../Comment/Comment';
+import { data } from '../../data'
+import CommentClass from '../../CommentClass';
 
 type CommentsProps = {
     notice: NoticeInterface;
 };
 
 const Comments: React.FC<CommentsProps> = ({ notice }) => {
+    const [username, setUsername] = useState<string>()
+    const [entry, setEntry] = useState<string>()
 
     const comments = notice && notice.comments.map(entry => {
         return <Comment 
@@ -15,19 +19,42 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
             id={entry.id} 
             username={entry.username} 
             comment={entry.comment} />
-    })
+    });
+
+    const handleClick = () => {
+        const targetId = notice.id
+        const targetNotice = data.find(notice => {
+            return notice.id === targetId
+        })
+        const entryId = targetNotice.comments.length 
+        const newComment = new CommentClass(entryId, username, entry)
+        console.log(newComment)
+        targetNotice.comments.push(newComment)
+    };
+
+    useEffect(() => {
+
+    }, [notice])
 
     return (
         <div className='view-container'>
             {comments}
             <div className='new-comment-container'>
+                <label>Username</label>
+                <input  
+                    type='text'
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)} 
+                />
                 <label>Leave a comment</label>
                 <div className='new-comment'>
                     <input
                         type='text'
-                        className='comment-input' 
+                        className='comment-input'
+                        value={entry} 
+                        onChange={(event) => setEntry(event.target.value)}
                     />
-                    <button className='comment-button'>Leave Comment</button>
+                    <button className='comment-button' onClick={handleClick}>Leave Comment</button>
                 </div>
             </div>
         </div>
