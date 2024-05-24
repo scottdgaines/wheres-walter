@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Comments.css';
 import { NoticeInterface } from '../../interfaces';
 import Comment from '../Comment/Comment';
@@ -8,26 +8,21 @@ type CommentsProps = {
 };
 
 const Comments: React.FC<CommentsProps> = ({ notice }) => {
-    const [commentsArray, setCommentsArray] = useState([])
 
-    useEffect(() => {
-            setCommentsArray(notice.comments)
-    }, [notice])
-
-    const comments = notice.comments.length > 0 && notice.comments.map(entry => {
+    const comments = notice && notice.comments.map(entry => {
         return <Comment 
             key={entry.id} 
             id={entry.id} 
             username={entry.username} 
-            comment={entry.comment} 
-        />
-    });
+            comment={entry.comment} />
+    })
 
     return (
         <div>
             {comments}
             <label>Leave a comment 
-                <textarea />
+                <input
+                    type='text' />
             </label>
             <button>Leave Comment</button>
         </div>
