@@ -15,6 +15,7 @@ class NoticeClass {
     contactNum: string;
     contactEmail: string;
     reward: boolean | null;
+    comments: [];
 
     constructor(type: string, reward: boolean | null, name: string, images:string[] | null, specie: string, breed: string,  sex: string, petDescription: string, chipNum: string, petNotes: string, contactNum: string, contactEmail:string) {
         this.id = this.determineId();
@@ -33,6 +34,7 @@ class NoticeClass {
         this.reward = reward;
         this.contactNum = contactNum;
         this.contactEmail = contactEmail;
+        this.comments = []
     }
 
     determineId = (): number => {
