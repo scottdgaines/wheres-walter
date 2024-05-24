@@ -1,3 +1,5 @@
+import Comments from "./components/Comments/Comments";
+
 export const data = [
     {
         id: 1,
@@ -13,7 +15,14 @@ export const data = [
         petNotes: 'Very friendly! Was last seen wearing a red collar.',
         contactNum: '123-456-7890',
         contactEmail: 'example@example.com',
-        reward: true
+        reward: true,
+        comments: [
+            {
+                id: 1,
+                username: 'leoD', 
+                comment:'I think I saw him near Lincoln Blvd!'
+            }
+        ]
      },
     {
         id: 2,
@@ -29,7 +38,8 @@ export const data = [
         petNotes: 'Tends to be anxious so approach slowly please!',
         contactNum: `123-456-7890`,
         contactEmail: 'example@example.com',
-        reward: true
+        reward: true,
+        comments: []
     },
     {
         id: 3,
@@ -45,7 +55,19 @@ export const data = [
         petNotes: 'Wearing a green collar. Likes to climb trees so please look in your yards',
         contactNum: `123-456-7890`,
         contactEmail: 'example@example.com',
-        reward: false    
+        reward: false,
+        comments: [
+            {
+                id: 1,
+                username: 'jack', 
+                comment: 'Does the collar have any pattern on it?'
+            },
+            {
+                id: 2,
+                username: 'Rose D',
+                comment: 'I think she might be at my neighbor\'s house'
+            }
+        ]
     },
     {
         id: 4,
@@ -61,7 +83,14 @@ export const data = [
         petNotes: 'Really friendly, found near the supermarket',
         contactNum: '123-456-7890',
         contactEmail: 'example@example.com',
-        reward: null
+        reward: null,
+        comments: [
+            {
+                id: 1,
+                username: 'Danielle D',
+                comment: 'just saw him back at the supermarket!'
+            }
+        ]
      },
      {
         id: 7,
@@ -77,7 +106,8 @@ export const data = [
         petNotes: 'Very friendly! Was last seen wearing a red collar.',
         contactNum: '123-456-7890',
         contactEmail: 'example@example.com',
-        reward: false
+        reward: false,
+        comments: []
      },
      {
         id: 12,
@@ -93,6 +123,13 @@ export const data = [
         petNotes: 'Found near the corner of 10th and irving',
         contactNum: '123-456-7890',
         contactEmail: 'example@example.com',
-        reward: null
-     },
+        reward: null,
+        comments: [
+            {
+                id: 1,
+                username: 'LFB',
+                comment: 'I think he belongs to my neighbor.'
+            }
+        ]
+     }
 ]

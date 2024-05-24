@@ -4,6 +4,7 @@ import { NoticeInterface } from '../../interfaces';
 import './View.css';
 import Notice from '../Notice/Notice';
 import Nav from '../Nav/Nav';
+import Comments from '../Comments/Comments'
 
 type ViewProps = {
     notices: NoticeInterface[];
@@ -42,6 +43,7 @@ const View: React.FC<ViewProps> = ({ notices }) => {
     <div className='background'>
         <Nav noticeIdNum={noticeIdNum} navigationArray={navigationArray} />
         <Notice notice={notice} />
+        <Comments notice={notice} />
     </div>
   )
 };

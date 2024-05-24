@@ -13,4 +13,11 @@ export interface NoticeInterface {
     contactNum: string,
     contactEmail: string,
     reward: boolean | null
+    comments: Comment[]
+}
+
+export interface Comment {
+    id: number,
+    username: string,
+    comment: string
 }
