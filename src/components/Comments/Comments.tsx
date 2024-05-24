@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Comments.css';
 import { NoticeInterface } from '../../interfaces';
 import Comment from '../Comment/Comment';
@@ -12,7 +12,6 @@ type CommentsProps = {
 const Comments: React.FC<CommentsProps> = ({ notice }) => {
     const [username, setUsername] = useState<string>()
     const [entry, setEntry] = useState<string>()
-    const [render, setRender] = useState('')
 
     const comments = notice && notice.comments.map(entry => {
         return <Comment 
@@ -31,33 +30,34 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
         const newComment = new CommentClass(entryId, username, entry)
         console.log(newComment)
         targetNotice.comments.push(newComment)
-        setRender('update!')
+        setUsername('')
+        setEntry('')
     };
-
-    useEffect(() => {
-        setRender('')
-    }, [render])
 
     return (
         <div className='view-container'>
-            {comments}
+            <div className='comment-container'>
+                {comments}
+            </div>
             <div className='new-comment-container'>
-                <label>Username</label>
-                <input  
-                    type='text'
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)} 
-                />
-                <label>Leave a comment</label>
-                <div className='new-comment'>
-                    <input
+                <div className='input-container'>
+                    <input  
                         type='text'
-                        className='comment-input'
-                        value={entry} 
-                        onChange={(event) => setEntry(event.target.value)}
-                    />
-                    <button className='comment-button' onClick={handleClick}>Leave Comment</button>
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)} 
+                        />
+                    <label>Username</label>
                 </div>
+                    <div className='input-container'>
+                        <input
+                            type='text'
+                            className='comment-input'
+                            value={entry} 
+                            onChange={(event) => setEntry(event.target.value)}
+                            />
+                        <label>Leave a comment</label>
+                    </div>
+                <button className='comment-button' onClick={handleClick}>Submit</button>
             </div>
         </div>
     )
