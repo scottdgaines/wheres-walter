@@ -12,6 +12,7 @@ type CommentsProps = {
 const Comments: React.FC<CommentsProps> = ({ notice }) => {
     const [username, setUsername] = useState<string>()
     const [entry, setEntry] = useState<string>()
+    const [render, setRender] = useState('')
 
     const comments = notice && notice.comments.map(entry => {
         return <Comment 
@@ -30,11 +31,12 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
         const newComment = new CommentClass(entryId, username, entry)
         console.log(newComment)
         targetNotice.comments.push(newComment)
+        setRender('update!')
     };
 
     useEffect(() => {
-
-    }, [notice])
+        setRender('')
+    }, [render])
 
     return (
         <div className='view-container'>
