@@ -1,9 +1,21 @@
-.comment {
+.comment-reply-container {
+    display: flex;
+    flex-direction: column;
     background-color: lightgray;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin: 6px 0px;
+    width: 80%;
+}
+
+.comment-container {
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
     margin: 6px 0px;
     width: 80%;
 }
@@ -25,4 +37,8 @@
     margin: 6px;
     padding: 10px;
     width: 80%
+}
+
+.reply-container {
+
 }

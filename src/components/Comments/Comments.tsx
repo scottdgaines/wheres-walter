@@ -18,7 +18,8 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
             key={entry.id} 
             id={entry.id} 
             username={entry.username} 
-            comment={entry.comment} />
+            comment={entry.comment} 
+            replies={entry.replies} />
     });
 
     const handleClick = () => {
