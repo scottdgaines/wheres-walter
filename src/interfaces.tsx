@@ -19,5 +19,12 @@ export interface NoticeInterface {
 export interface Comment {
     id: number,
     username: string,
-    comment: string
+    comment: string,
+    replies: Reply[]
+}
+
+export interface Reply {
+    id: number,
+    username: string,
+    comment: string;
 }

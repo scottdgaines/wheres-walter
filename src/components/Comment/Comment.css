@@ -1,11 +1,25 @@
-.comment {
+.comment-reply-container {
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: row;
     background-color: lightgray;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 6px 0px;
-    width: 80%;
+    width: 100%;
+}
+
+.username-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .comment-username {
@@ -14,7 +28,14 @@
     margin: 10px 10px 0px 6px;
     padding: 6px;
     height: 20px;
-    width: 60px;
+    width: fit-content;
+}
+
+.reply-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
 }
 
 .comment-comment {
@@ -24,5 +45,18 @@
     height: fit-content;
     margin: 6px;
     padding: 10px;
-    width: 80%
 }
+
+.reply-icon {
+    height: 25px;
+    margin: 10px 5px 3px 3px;
+    margin-top: 10px;
+}
+
+.reply {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    width: 90%;;
+}
+

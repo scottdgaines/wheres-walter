@@ -4,6 +4,7 @@ import { NoticeInterface } from '../../interfaces';
 import Comment from '../Comment/Comment';
 import { data } from '../../data'
 import CommentClass from '../../CommentClass';
+import replyIcon from '../../assets/reply-icon.png'
 
 type CommentsProps = {
     notice: NoticeInterface;
@@ -12,14 +13,35 @@ type CommentsProps = {
 const Comments: React.FC<CommentsProps> = ({ notice }) => {
     const [username, setUsername] = useState<string>()
     const [entry, setEntry] = useState<string>()
+    const [update, setUpdate] = useState<boolean>(false)
 
     const comments = notice && notice.comments.map(entry => {
-        return <Comment 
-            key={entry.id} 
-            id={entry.id} 
-            username={entry.username} 
-            comment={entry.comment} />
-    });
+        const replies = entry.replies.length > 0 && entry.replies.map(reply => {
+            return (
+                <div className='reply'>
+                    <img src={replyIcon} className='reply-icon' />
+                    <Comment 
+                        key={reply.id} 
+                        id={reply.id} 
+                        username={reply.username} 
+                        comment={reply.comment}
+                    />
+                </div>
+            )
+        })
+
+        return (
+            <Comment 
+                key={entry.id} 
+                id={entry.id} 
+                notice={notice}
+                username={entry.username} 
+                comment={entry.comment} 
+                replies={replies}
+                update={update}
+                setUpdate={setUpdate}
+            />
+    )});
 
     const handleClick = () => {
         const targetId = notice.id
@@ -28,7 +50,7 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
         })
         const entryId = targetNotice.comments.length 
         const newComment = new CommentClass(entryId, username, entry)
-        console.log(newComment)
+
         targetNotice.comments.push(newComment)
         setUsername('')
         setEntry('')
@@ -36,7 +58,7 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
 
     return (
         <div className='view-container'>
-            <div className='comment-container'>
+            <div className='prev-comment-container'>
                 {comments}
             </div>
             <div className='new-comment-container'>

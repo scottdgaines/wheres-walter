@@ -20,7 +20,19 @@ export const data = [
             {
                 id: 1,
                 username: 'leoD', 
-                comment:'I think I saw him near Lincoln Blvd!'
+                comment:'I think I saw him near Lincoln Blvd!',
+                replies: [
+                    {
+                        id: 1, 
+                        username: 'spongebob',
+                        comment: 'Thanks!'
+                    },
+                    {
+                        id: 2,
+                        username: 'leoD',
+                        comment: 'Good luck!'
+                    }
+                ]
             }
         ]
      },
@@ -60,12 +72,20 @@ export const data = [
             {
                 id: 1,
                 username: 'jack', 
-                comment: 'Does the collar have any pattern on it?'
+                comment: 'Does the collar have any pattern on it?',
+                replies: []
             },
             {
                 id: 2,
                 username: 'Rose D',
-                comment: 'I think she might be at my neighbor\'s house'
+                comment: 'I think she might be at my neighbor\'s house',
+                replies: [
+                    {
+                        id: 1,
+                        username: 'LothLoriAnne',
+                        comment: 'Can you send me their information?'
+                    }
+                ]
             }
         ]
     },
@@ -88,7 +108,8 @@ export const data = [
             {
                 id: 1,
                 username: 'Danielle D',
-                comment: 'just saw him back at the supermarket!'
+                comment: 'just saw him back at the supermarket!',
+                replies: []
             }
         ]
      },
@@ -128,7 +149,14 @@ export const data = [
             {
                 id: 1,
                 username: 'LFB',
-                comment: 'I think he belongs to my neighbor.'
+                comment: 'I think he belongs to my neighbor.',
+                replies: [
+                    {
+                        id: 1,
+                        username: 'Fur Elyse',
+                        comment: 'On my way!'
+                    }
+                ]
             }
         ]
      }
