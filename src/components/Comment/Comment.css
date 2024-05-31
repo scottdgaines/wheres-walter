@@ -1,23 +1,19 @@
 .comment-reply-container {
     display: flex;
     flex-direction: column;
-    background-color: lightgray;
-    border: 1px solid black;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin: 6px 0px;
-    width: 80%;
+    width: 96%;
 }
 
 .comment-container {
+    display: flex;
+    flex-direction: row;
     background-color: lightgray;
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     margin: 6px 0px;
-    width: 80%;
+    width: 100%;
 }
 
 .comment-username {
@@ -36,9 +32,16 @@
     height: fit-content;
     margin: 6px;
     padding: 10px;
-    width: 80%
 }
 
-.reply-container {
+.reply {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    width: 90%;;
+}
 
+.reply-icon {
+    height: 25px;
+    margin: 3px;
 }

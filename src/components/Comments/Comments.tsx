@@ -4,6 +4,7 @@ import { NoticeInterface } from '../../interfaces';
 import Comment from '../Comment/Comment';
 import { data } from '../../data'
 import CommentClass from '../../CommentClass';
+import replyIcon from '../../assets/reply-icon.png'
 
 type CommentsProps = {
     notice: NoticeInterface;
@@ -14,13 +15,29 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
     const [entry, setEntry] = useState<string>()
 
     const comments = notice && notice.comments.map(entry => {
-        return <Comment 
-            key={entry.id} 
-            id={entry.id} 
-            username={entry.username} 
-            comment={entry.comment} 
-            replies={entry.replies} />
-    });
+        const replies = entry.replies.length > 0 && entry.replies.map(reply => {
+            return (
+                <div className='reply'>
+                    <img src={replyIcon} className='reply-icon' />
+                    <Comment 
+                        key={reply.id} 
+                        id={reply.id} 
+                        username={reply.username} 
+                        comment={reply.comment}
+                    />
+                </div>
+            )
+        })
+
+        return (
+            <Comment 
+                key={entry.id} 
+                id={entry.id} 
+                username={entry.username} 
+                comment={entry.comment} 
+                replies={replies}
+            />
+    )});
 
     const handleClick = () => {
         const targetId = notice.id
@@ -36,7 +53,7 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
     };
 
     return (
-        <div className='view-container comment-container'>
+        <div className='view-container'>
             <div className='prev-comment-container'>
                 {comments}
             </div>
