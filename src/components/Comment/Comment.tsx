@@ -13,16 +13,16 @@ type CommentProps = {
     replies?: React.JSX.Element[]
     update?: boolean;
     setUpdate?: React.Dispatch<React.SetStateAction<boolean>>;
+    headComment?: boolean;
 };
 
-const Comment: React.FC<CommentProps> = ({ key, id, notice, username, comment, replies, update, setUpdate }) => {
+const Comment: React.FC<CommentProps> = ({ key, id, notice, username, comment, replies, update, setUpdate, headComment }) => {
   const [reply, setReply] = useState<boolean>(false)
   const [replyUsername, setReplyUsername] = useState<string>('')
   const [replyEntry, setReplyEntry] = useState<string>('')
 
   const toggleCommentBox = () => {
     setReply(!reply)
-
   }
 
   const handleClick = () => {
@@ -61,7 +61,7 @@ const Comment: React.FC<CommentProps> = ({ key, id, notice, username, comment, r
       <button className='comment-button' onClick={handleClick}>Submit</button>
   </div>
 
-  const replyButton = update &&  <img src={replyIcon} className='reply-button' onClick={toggleCommentBox}/>
+  const replyButton = headComment &&  <img src={replyIcon} className='reply-button' onClick={toggleCommentBox}/>
 
   return (
     <div className='comment-reply-container' >
