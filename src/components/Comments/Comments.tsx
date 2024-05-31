@@ -13,6 +13,7 @@ type CommentsProps = {
 const Comments: React.FC<CommentsProps> = ({ notice }) => {
     const [username, setUsername] = useState<string>()
     const [entry, setEntry] = useState<string>()
+    const [update, setUpdate] = useState<boolean>(false)
 
     const comments = notice && notice.comments.map(entry => {
         const replies = entry.replies.length > 0 && entry.replies.map(reply => {
@@ -33,9 +34,12 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
             <Comment 
                 key={entry.id} 
                 id={entry.id} 
+                notice={notice}
                 username={entry.username} 
                 comment={entry.comment} 
                 replies={replies}
+                update={update}
+                setUpdate={setUpdate}
             />
     )});
 
@@ -46,7 +50,7 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
         })
         const entryId = targetNotice.comments.length 
         const newComment = new CommentClass(entryId, username, entry)
-        console.log(newComment)
+
         targetNotice.comments.push(newComment)
         setUsername('')
         setEntry('')

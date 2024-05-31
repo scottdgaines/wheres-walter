@@ -16,6 +16,12 @@
     width: 100%;
 }
 
+.username-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .comment-username {
     border-radius: 6px;
     font-weight: bold;
@@ -23,6 +29,13 @@
     padding: 6px;
     height: 20px;
     width: fit-content;
+}
+
+.reply-button {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
 }
 
 .comment-comment {
