@@ -16,6 +16,7 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
     const [update, setUpdate] = useState<boolean>(false)
 
     const comments = notice && notice.comments.map(entry => {
+        const headComment = true
         const replies = entry.replies.length > 0 && entry.replies.map(reply => {
             return (
                 <div className='reply'>
@@ -40,6 +41,7 @@ const Comments: React.FC<CommentsProps> = ({ notice }) => {
                 replies={replies}
                 update={update}
                 setUpdate={setUpdate}
+                headComment={headComment}
             />
     )});
 
