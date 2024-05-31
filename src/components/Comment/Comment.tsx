@@ -61,7 +61,7 @@ const Comment: React.FC<CommentProps> = ({ key, id, notice, username, comment, r
       <button className='comment-button' onClick={handleClick}>Submit</button>
   </div>
 
-  const replyButton = replies &&  <img src={replyIcon} className='reply-button' onClick={toggleCommentBox}/>
+  const replyButton = update &&  <img src={replyIcon} className='reply-button' onClick={toggleCommentBox}/>
 
   return (
     <div className='comment-reply-container' >
